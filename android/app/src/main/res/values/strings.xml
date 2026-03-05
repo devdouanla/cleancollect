@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">cleancollect</string>
+    <string name="title_activity_main">cleancollect</string>
+    <string name="package_name">cleancollect.inova.etokoss</string>
+    <string name="custom_url_scheme">cleancollect.inova.etokoss</string>
+</resources>
