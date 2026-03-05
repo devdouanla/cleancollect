@@ -1,0 +1,7 @@
+{
+  "name": "cleancollect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
