@@ -1,27 +1,187 @@
-#container {
-  text-align: center;
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #f4f5f8;
+  /* Optional: light background outside the phone area */
+}
 
+ion-content.splash-content {
+  max-width: 450px !important;
+  max-height: 900px !important;
+  margin: 0 auto;
+  border-radius: 20px;
+  /* Gives it a phone-like look on desktop */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+ion-content.splash-content::part(background) {
+  background-color: #26dc6a;
+  /* Base Green */
+  /* If you ever get the exact image from the designer, add it here:
+     background-image: url('assets/leaf-bg.png'); 
+     background-size: cover; */
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 40px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo Section */
+.logo-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.logo-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.white-circle {
+  width: 140px;
+  height: 140px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recycle-svg {
+  width: 70px;
+  height: 70px;
+  color: #26dc6a;
+}
+
+.leaf-badge {
   position: absolute;
-  left: 0;
+  top: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background-color: #0b1528;
+  /* Dark navy */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #26dc6a;
+
+  ion-icon {
+    color: #26dc6a;
+    font-size: 18px;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.brand-title {
+  color: #0b1528;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
+.brand-subtitle {
+  color: #0b1528;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
   margin: 0;
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
-#container a {
-  text-decoration: none;
+/* Bottom Section */
+.bottom-section {
+  padding-bottom: 20px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  .loading-text {
+    color: #0b1528;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .location-icon {
+    color: #0b1528;
+    font-size: 18px;
+  }
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(11, 21, 40, 0.15);
+  /* Semi-transparent dark bg */
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+  width: 35%;
+  /* Hardcoded for mockup representation */
+  height: 100%;
+  background-color: #0b1528;
+  border-radius: 10px;
+}
+
+.footer-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  /* Adding the subtle line around mobile money ready */
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 4px 0;
+}
+
+.footer-badge::before,
+.footer-badge::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  height: 1px;
+  background-color: rgba(11, 21, 40, 0.3);
+}
+
+.footer-badge::before {
+  left: -20px;
+  right: -20px;
+}
+
+.cash-icon {
+  color: #0b1528;
+  font-size: 14px;
+}
+
+.footer-text {
+  color: #0b1528;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }

@@ -1,0 +1,97 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="transparent-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="arrow-back-outline" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Connexion</ion-title>
+    <!-- Empty slot end to perfectly center the title -->
+    <ion-buttons slot="end">
+      <div style="width: 48px"></div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="main-wrapper">
+
+    <!-- Top Graphic Placeholder Area -->
+    <div class="top-graphic-area">
+      <div class="graphic-placeholder">
+        <!-- Mocking the 3 trash bins with simple CSS divs -->
+        <div class="mock-bin light-bin"></div>
+        <div class="mock-bin dark-bin"></div>
+        <div class="mock-bin dark-bin"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Sheet Form Area -->
+    <div class="bottom-sheet">
+      <div class="form-container">
+
+        <!-- Welcome Titles -->
+        <h1 class="welcome-title">Bon retour !</h1>
+        <p class="welcome-subtitle">Connectez-vous pour gérer vos collectes de déchets et vos paiements.</p>
+
+        <!-- Input Form -->
+        <div class="inputs-section">
+
+          <div class="input-group">
+            <label class="input-label">Numéro de téléphone</label>
+            <div class="custom-input-wrap">
+              <ion-icon name="call-outline" class="prefix-icon"></ion-icon>
+              <input type="tel" placeholder="Ex: 6xx xxx xxx" class="custom-input" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label">Mot de passe</label>
+            <div class="custom-input-wrap">
+              <ion-icon name="lock-closed-outline" class="prefix-icon"></ion-icon>
+              <input type="password" placeholder="••••••••" class="custom-input" />
+              <ion-icon name="eye-outline" class="suffix-icon"></ion-icon>
+            </div>
+          </div>
+
+          <!-- Forgot Password -->
+          <div class="forgot-password">
+            <a href="#">Mot de passe oublié ?</a>
+          </div>
+
+        </div>
+
+        <!-- Login Button -->
+        <button class="primary-btn">
+          Se connecter
+        </button>
+
+        <!-- Or Divider -->
+        <div class="divider-container">
+          <span class="divider-line"></span>
+          <span class="divider-text">OU</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <!-- Register Link -->
+        <div class="register-link">
+          <span class="muted-text">Nouveau sur CleanCollect ? </span>
+          <a href="#" class="accent-link">Créer un compte</a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Tabs -->
+      <div class="bottom-tabs">
+        <div class="tab">
+          <ion-icon name="location-outline" class="tab-icon"></ion-icon>
+          <span class="tab-text">GPS TRACKED</span>
+        </div>
+        <div class="tab">
+          <ion-icon name="cash-outline" class="tab-icon"></ion-icon>
+          <span class="tab-text">MOBILE MONEY</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

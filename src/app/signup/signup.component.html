@@ -1,0 +1,105 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="transparent-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="arrow-back-outline" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Inscription</ion-title>
+    <!-- Empty slot end to perfect center -->
+    <ion-buttons slot="end">
+      <div style="width: 48px"></div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="signup-content">
+  <div class="main-wrapper">
+
+    <!-- Header Titles -->
+    <div class="titles-section">
+      <h1 class="page-title">Créer un compte</h1>
+      <p class="page-subtitle">Rejoignez CleanCollect pour gérer vos déchets facilement au Cameroun.</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-section">
+
+      <!-- Full Name -->
+      <div class="input-group">
+        <label class="input-label">Nom complet</label>
+        <div class="custom-input-wrap">
+          <input type="text" placeholder="Ex: Jean Dupont" class="custom-input" />
+          <ion-icon name="person-outline" class="suffix-icon"></ion-icon>
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="input-group">
+        <label class="input-label">Numéro de téléphone</label>
+        <div class="custom-input-wrap phone-wrap">
+          <div class="country-prefix">
+            <span>+237</span>
+          </div>
+          <input type="tel" placeholder="6xx xxx xxx" class="custom-input phone-input" />
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="input-group">
+        <label class="input-label">Email</label>
+        <div class="custom-input-wrap">
+          <input type="email" placeholder="votre@email.com" class="custom-input" />
+          <ion-icon name="mail-outline" class="suffix-icon"></ion-icon>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label class="input-label">Mot de passe</label>
+        <div class="custom-input-wrap">
+          <input type="password" placeholder="••••••••" class="custom-input" />
+          <ion-icon name="eye-outline" class="suffix-icon"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Terms and conditions -->
+    <div class="terms-text">
+      <p>En créant un compte, vous acceptez nos <a href="#">Conditions<br>d'utilisation</a> et notre <a
+          href="#">Politique de confidentialité.</a></p>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="primary-btn submit-btn">
+      <span>Créer mon compte</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+
+    <!-- Bottom elements section -->
+    <div class="bottom-footer">
+
+      <!-- Trackers Tab -->
+      <div class="bottom-tabs">
+        <div class="tab">
+          <ion-icon name="cash-outline" class="tab-icon"></ion-icon>
+          <span class="tab-text">MOBILE MONEY</span>
+        </div>
+        <div class="tab">
+          <ion-icon name="location-outline" class="tab-icon"></ion-icon>
+          <span class="tab-text">GPS TRACKING</span>
+        </div>
+      </div>
+
+      <!-- Login Link -->
+      <div class="login-link">
+        <span class="muted-text">Déjà un compte ? </span>
+        <a href="#" class="accent-link">Se connecter</a>
+      </div>
+
+      <!-- Bottom Swipe Line Indicator (decorative) -->
+      <div class="swipe-indicator"></div>
+
+    </div>
+
+  </div>
+</ion-content>

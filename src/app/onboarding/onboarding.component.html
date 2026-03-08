@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="transparent-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="arrow-back-outline" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">CleanCollect</ion-title>
+    <!-- Empty slot end to perfectly center the title -->
+    <ion-buttons slot="end">
+      <div style="width: 48px"></div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="onboarding-content">
+  <div class="main-wrapper">
+
+    <!-- Top Image/Graphic Section -->
+    <div class="graphic-section">
+      <!-- Placeholder for the phone graphic -->
+      <div class="phone-mockup-placeholder">
+        <div class="phone-screen-inner">
+          <div class="phone-notch"></div>
+
+          <!-- Mocking the little floating icons -->
+          <div class="floating-icon left-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="4" fill="#426B54" />
+              <path
+                d="M12 7C12.5523 7 13 6.55228 13 6C13 5.44772 12.5523 5 12 5C11.4477 5 11 5.44772 11 6C11 6.55228 11.4477 7 12 7Z"
+                fill="white" />
+              <path d="M12 9V14M12 14L9 19M12 14L15 19M9 9H15" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <div class="floating-icon right-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="4" fill="#FF8A00" />
+              <circle cx="12" cy="12" r="4" fill="white" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Content Section -->
+    <div class="text-section">
+      <h1 class="slide-title">Paiement Mobile<br>Money sécurisé</h1>
+      <p class="slide-description">Payez facilement avec MTN<br>MoMo ou Orange Money en<br>quelques clics.</p>
+    </div>
+
+    <!-- Bottom Section (Pagination & Button) -->
+    <div class="bottom-controls">
+      <div class="pagination-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+      </div>
+
+      <button class="primary-btn">
+        Commencer
+      </button>
+    </div>
+
+  </div>
+</ion-content>

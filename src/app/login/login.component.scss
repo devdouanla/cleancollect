@@ -1,0 +1,292 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f4f5f8;
+}
+
+ion-content.login-content,
+ion-header {
+    max-width: 450px !important;
+    margin: 0 auto;
+}
+
+ion-header {
+    background-color: #ffffff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+ion-content.login-content {
+    max-height: calc(900px - 56px) !important;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --background: #eff3f6;
+    /* Very light cool gray matching the wall background in the bin image */
+}
+
+ion-toolbar.transparent-toolbar {
+    --background: #ffffff;
+    --ion-color-base: #ffffff;
+    --border-width: 0;
+}
+
+ion-back-button {
+    color: #0b1528;
+    --icon-font-size: 24px;
+}
+
+.header-title {
+    color: #0b1528;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+/* Graphic Placeholder Section */
+.top-graphic-area {
+    height: 250px;
+    width: 100%;
+    background-color: #e5e5e5;
+    background-image: linear-gradient(to bottom, #eff3f6, #cfd8dc);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.graphic-placeholder {
+    display: flex;
+    gap: 15px;
+    opacity: 0.9;
+}
+
+.mock-bin {
+    width: 70px;
+    height: 120px;
+    border-radius: 8px 8px 0 0;
+    border-top: 4px solid #fbbc05;
+    /* gold trim */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.light-bin {
+    background-color: #ffffff;
+}
+
+.dark-bin {
+    background-color: #232d36;
+}
+
+/* Bottom Sheet Section (overlaps top) */
+.bottom-sheet {
+    background-color: #ffffff;
+    flex-grow: 1;
+    width: 100%;
+    border-top-left-radius: 0px;
+    /* Looks like in the design it's wrapped by the green box, so keeping it straight, 
+     wait, no, it's a straight box, but the green highlight is drawn around it.
+     Let's keep it straight since it's wrapped in a blue rectangle on the image. */
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    /* Add subtle top shadow */
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.03);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Titles */
+.welcome-title {
+    color: #0b1528;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.welcome-subtitle {
+    color: #6a7c92;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Form Inputs */
+.inputs-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-label {
+    color: #0b1528;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.custom-input-wrap {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e1e9f0;
+    border-radius: 12px;
+    padding: 0 16px;
+    height: 52px;
+    transition: border-color 0.2s;
+}
+
+.custom-input-wrap:focus-within {
+    border-color: #26dc6a;
+}
+
+.prefix-icon {
+    color: #a0aab8;
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.suffix-icon {
+    color: #a0aab8;
+    font-size: 20px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.custom-input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #0b1528;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.custom-input::placeholder {
+    color: #b0bac9;
+    font-weight: 400;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: 4px;
+}
+
+.forgot-password a {
+    color: #26dc6a;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Button */
+.primary-btn {
+    width: 100%;
+    height: 56px;
+    background-color: #26dc6a;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(38, 220, 106, 0.3);
+    margin-top: 10px;
+    transition: transform 0.1s;
+}
+
+.primary-btn:active {
+    transform: scale(0.98);
+}
+
+/* Dividers & Links */
+.divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+    gap: 10px;
+}
+
+.divider-line {
+    height: 1px;
+    flex-grow: 1;
+    background-color: #e1e9f0;
+}
+
+.divider-text {
+    color: #a0aab8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.register-link {
+    text-align: center;
+    font-size: 13px;
+}
+
+.muted-text {
+    color: #6a7c92;
+}
+
+.accent-link {
+    color: #26dc6a;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Bottom Tabs Placeholder */
+.bottom-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.tab-icon {
+    color: #b0bac9;
+    font-size: 20px;
+}
+
+.tab-text {
+    color: #b0bac9;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
