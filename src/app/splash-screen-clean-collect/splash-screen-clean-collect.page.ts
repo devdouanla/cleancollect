@@ -4,12 +4,12 @@ import { addIcons } from 'ionicons';
 import { leafOutline, locationOutline, cashOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-splash-screen-clean-collect',
+  templateUrl: 'splash-screen-clean-collect.page.html',
+  styleUrls: ['splash-screen-clean-collect.page.scss'],
   imports: [IonContent, IonIcon],
 })
-export class HomePage {
+export class SplashScreenCleanCollectPage {
   constructor() {
     addIcons({ leafOutline, locationOutline, cashOutline });
   }

@@ -4,13 +4,13 @@ import { addIcons } from 'ionicons';
 import { arrowBackOutline, callOutline, lockClosedOutline, eyeOutline, locationOutline, cashOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-connexion-clean-collect',
+  templateUrl: './connexion-clean-collect.component.html',
+  styleUrls: ['./connexion-clean-collect.component.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonToolbar, IonBackButton, IonTitle, IonButtons, IonIcon]
 })
-export class LoginComponent implements OnInit {
+export class ConnexionCleanCollectComponent implements OnInit {
 
   constructor() {
     addIcons({ arrowBackOutline, callOutline, lockClosedOutline, eyeOutline, locationOutline, cashOutline });

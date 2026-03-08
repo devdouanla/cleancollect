@@ -4,13 +4,13 @@ import { addIcons } from 'ionicons';
 import { arrowBackOutline, personOutline, mailOutline, eyeOutline, locationOutline, cashOutline, chevronForwardOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  selector: 'app-inscription-utilisateur',
+  templateUrl: './inscription-utilisateur.component.html',
+  styleUrls: ['./inscription-utilisateur.component.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonToolbar, IonBackButton, IonTitle, IonButtons, IonIcon]
 })
-export class SignupComponent implements OnInit {
+export class InscriptionUtilisateurComponent implements OnInit {
 
   constructor() {
     addIcons({ arrowBackOutline, personOutline, mailOutline, eyeOutline, locationOutline, cashOutline, chevronForwardOutline });

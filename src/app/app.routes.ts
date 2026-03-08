@@ -2,24 +2,24 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: 'splash-screen-clean-collect',
+    loadComponent: () => import('./splash-screen-clean-collect/splash-screen-clean-collect.page').then((m) => m.SplashScreenCleanCollectPage),
   },
   {
-    path: 'onboarding',
-    loadComponent: () => import('./onboarding/onboarding.component').then((m) => m.OnboardingComponent),
+    path: 'onboarding-paiement-securise',
+    loadComponent: () => import('./onboarding-paiement-securise/onboarding-paiement-securise.component').then((m) => m.OnboardingPaiementSecuriseComponent),
   },
   {
-    path: 'login',
-    loadComponent: () => import('./login/login.component').then((m) => m.LoginComponent),
+    path: 'connexion-clean-collect',
+    loadComponent: () => import('./connexion-clean-collect/connexion-clean-collect.component').then((m) => m.ConnexionCleanCollectComponent),
   },
   {
-    path: 'signup',
-    loadComponent: () => import('./signup/signup.component').then((m) => m.SignupComponent),
+    path: 'inscription-utilisateur',
+    loadComponent: () => import('./inscription-utilisateur/inscription-utilisateur.component').then((m) => m.InscriptionUtilisateurComponent),
   },
   {
     path: '',
-    redirectTo: 'signup',
+    redirectTo: 'inscription-utilisateur',
     pathMatch: 'full',
   },
 ];

@@ -4,13 +4,13 @@ import { addIcons } from 'ionicons';
 import { arrowBackOutline } from 'ionicons/icons';
 
 @Component({
-  selector: 'app-onboarding',
-  templateUrl: './onboarding.component.html',
-  styleUrls: ['./onboarding.component.scss'],
+  selector: 'app-onboarding-paiement-securise',
+  templateUrl: './onboarding-paiement-securise.component.html',
+  styleUrls: ['./onboarding-paiement-securise.component.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonToolbar, IonBackButton, IonTitle, IonButtons]
 })
-export class OnboardingComponent implements OnInit {
+export class OnboardingPaiementSecuriseComponent implements OnInit {
 
   constructor() {
     addIcons({ arrowBackOutline });
