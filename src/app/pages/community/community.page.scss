@@ -1,0 +1,167 @@
+.badge-success{
+background:#E8F5E9;
+color:#1B5E20;
+padding:6px 12px;
+border-radius:10px;
+}
+
+ion-content{
+  --background:#f5f6fb;
+}
+
+.title {
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Pastille verte notifications */
+.notification-btn {
+  position: relative;
+}
+.notification-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background: var(--ion-color-primary);
+  border-radius: 50%;
+}
+
+.post-box{
+  padding: 16px;
+  background: #ffffff;
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+}
+
+.post-input{
+  display: flex;
+  align-items: center;
+  background: #f3f5f7;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  margin-right:10px;
+}
+
+.post-actions{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.icons{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  background:#ffffff;
+  border-radius:20px;
+  color:#555;
+  font-size:14px;
+}
+
+.icons ion-icon{
+  font-size:20px;
+}
+
+.publish-btn{
+  --background:#17c964;
+  border-radius:20px;
+}
+
+.image-preview{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.image-preview img{
+  max-width:100%;
+  border-radius:12px;
+}
+
+.filters{
+  display:flex;
+  padding:12px 12px 4px;
+  gap:10px;
+}
+
+.filters ion-chip{
+  --background:#f3f4f7;
+  --color:#6c757d;
+  border-radius:999px;
+  font-size:13px;
+}
+
+.filters ion-chip[color="success"]{
+  --background:#e8f8ef;
+  --color:#2ECC71;
+}
+
+.post{
+  padding:15px;
+  border-bottom:1px solid #eee;
+}
+
+.post-header{
+  display:flex;
+  align-items:center;
+}
+
+.post-header .info{
+  flex:1;
+  margin-left:10px;
+}
+
+.post-header h3{
+  margin:0;
+  font-size:16px;
+}
+
+.post-header p{
+  margin:0;
+  color:#777;
+  font-size:13px;
+}
+
+.post-text{
+  margin:10px 0;
+}
+
+.post-image{
+  width:100%;
+  border-radius:15px;
+}
+
+.post-footer{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.left{
+  display:flex;
+}
+
+.action{
+  display:flex;
+  align-items:center;
+  margin-right:15px;
+}
+
+.action ion-icon{
+  font-size:20px;
+  margin-right:5px;
+}
+
+.share{
+  display:flex;
+  align-items:center;
+}

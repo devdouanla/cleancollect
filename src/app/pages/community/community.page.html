@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button color="dark">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="title">Communauté</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Zone publication -->
+  <div class="post-box">
+
+    <input
+      type="file"
+      accept="image/*"
+      capture="environment"
+      hidden
+      #imageInput
+      (change)="onSelectImage($event)">
+
+    <div class="post-input">
+
+      <img src="assets/images/avatar1.jpg" class="avatar">
+
+      <ion-input
+        placeholder="Quoi de neuf pour l'écologie ?"
+        [(ngModel)]="newPost">
+      </ion-input>
+
+    </div>
+
+    <div class="post-actions">
+
+      <div class="icons" (click)="imageInput.click()">
+        <ion-icon name="camera-outline" color="success"></ion-icon>
+        <span>Photo / Galerie</span>
+      </div>
+
+      <ion-button class="publish-btn" (click)="publish()">
+        Publier
+      </ion-button>
+
+    </div>
+
+    <div class="image-preview" *ngIf="selectedImage">
+      <img [src]="selectedImage" alt="Aperçu de l'image sélectionnée">
+      <ion-button size="small" fill="clear"  color="success" (click)="removeImage()">
+        Retirer l'image
+      </ion-button>
+    </div>
+
+  </div>
+
+  <!-- Filtres -->
+  <div class="filters">
+
+    <ion-chip
+      [color]="activeFilter === 'all' ? 'success' : 'medium'"
+      (click)="setFilter('all')">
+      <ion-label>Tout</ion-label>
+    </ion-chip>
+
+    <ion-chip
+      [color]="activeFilter === 'recyclage' ? 'success' : 'medium'"
+      (click)="setFilter('recyclage')">
+      <ion-label>Recyclage</ion-label>
+    </ion-chip>
+
+    <ion-chip
+      [color]="activeFilter === 'conseils' ? 'success' : 'medium'"
+      (click)="setFilter('conseils')">
+      <ion-label>Conseils</ion-label>
+    </ion-chip>
+
+    <ion-chip
+      [color]="activeFilter === 'evenements' ? 'success' : 'medium'"
+      (click)="setFilter('evenements')">
+      <ion-label>Événements</ion-label>
+    </ion-chip>
+
+  </div>
+
+  <!-- LISTE DES POSTS -->
+  <app-post-card
+    *ngFor="let post of filteredPosts"
+    [post]="post">
+  </app-post-card>
+
+</ion-content>
+
+<!-- bouton flottant -->
+<ion-fab vertical="bottom" horizontal="center">
+  <ion-fab-button color="success">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<!-- menu bas -->
+<ion-footer>
+  <ion-tab-bar>
+
+    <ion-tab-button (click)="goTo('home')">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="active" (click)="goTo('community')">
+      <ion-icon name="people"></ion-icon>
+      <ion-label>Communauté</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goTo('collecte')">
+      <ion-icon name="leaf-outline"></ion-icon>
+      <ion-label>Collecte</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goTo('profil')">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-footer>

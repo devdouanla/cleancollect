@@ -1,0 +1,85 @@
+<ion-card class="post-card">
+
+<ion-item lines="none">
+
+<ion-avatar slot="start">
+<img [src]="post.userAvatar">
+</ion-avatar>
+
+<ion-label>
+
+<h2>{{post.userName}}</h2>
+
+<p>{{post.time}} • {{post.location}}</p>
+
+</ion-label>
+
+</ion-item>
+
+<ion-card-content>
+
+{{post.content}}
+
+</ion-card-content>
+
+<img *ngIf="post.image" [src]="post.image">
+
+<!-- actions -->
+
+<ion-row class="post-actions">
+
+  <ion-col class="like" (click)="like()">
+    <ion-icon
+      [name]="post.likedByCurrentUser ? 'heart' : 'heart-outline'"
+      [color]="post.likedByCurrentUser ? 'primary' : 'medium'">
+    </ion-icon>
+    <span>{{post.likes}}</span>
+  </ion-col>
+
+  <ion-col class="comments" (click)="toggleComments()">
+    <ion-icon name="chatbubble-outline" color="medium"></ion-icon>
+    <span>{{post.comments.length}}</span>
+  </ion-col>
+
+  <ion-col class="share" (click)="share()">
+    <ion-icon
+      name="share-social-outline"
+      [color]="post.sharedByCurrentUser ? 'primary' : 'medium'">
+    </ion-icon>
+    <span>{{post.shares}}</span>
+  </ion-col>
+
+</ion-row>
+
+<!-- commentaires -->
+
+<div *ngIf="showComments">
+
+<ion-list>
+
+<ion-item *ngFor="let c of post.comments">
+
+<strong>{{c.user}}</strong> : {{c.message}}
+
+</ion-item>
+
+</ion-list>
+
+<ion-item>
+
+<ion-input
+placeholder="Ajouter un commentaire"
+[formControl]="commentControl">
+</ion-input>
+
+<ion-button (click)="addComment()">
+
+Envoyer
+
+</ion-button>
+
+</ion-item>
+
+</div>
+
+</ion-card>
