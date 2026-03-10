@@ -1,0 +1,168 @@
+<ion-header class="ion-no-border tdb-header">
+  <ion-toolbar>
+    <!-- Avatar + Bonjour -->
+    <ion-row class="ion-align-items-center header-row" slot="start">
+      <ion-col size="auto">
+        <div class="avatar-circle">
+          <ion-img src="https://picsum.photos/id/1005/200/200" class="avatar-img"></ion-img>
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-text class="bonjour-text">Bonjour,</ion-text>
+        <ion-text class="user-name">Armand Nkou</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <!-- Toggle EN LIGNE -->
+    <ion-row class="ion-align-items-center" slot="end">
+      <ion-col size="auto">
+        <ion-card class="status-card" [class.status-online]="isOnline">
+          <ion-card-content class="status-card-content">
+            <ion-text class="status-label" [class.status-label-on]="isOnline">
+              {{ isOnline ? 'EN LIGNE' : 'HORS LIGNE' }}
+            </ion-text>
+            <ion-toggle
+              [(ngModel)]="isOnline"
+              color="success"
+              class="status-toggle">
+            </ion-toggle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="tdb-page">
+
+  <!-- ===== TITRE ===== -->
+  <ion-row class="ion-padding-horizontal title-row">
+    <ion-col>
+      <ion-text class="page-title">Tableau de bord</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <!-- ===== CARTES STATS ===== -->
+  <ion-row class="ion-padding-horizontal stats-row">
+
+    <!-- Gains du jour -->
+    <ion-col size="6">
+      <ion-card class="stat-card">
+        <ion-card-content class="stat-card-content">
+          <ion-row class="icon-row">
+            <div class="stat-icon-box">
+              <ion-icon name="cash-outline" class="stat-icon"></ion-icon>
+            </div>
+          </ion-row>
+          <ion-text class="stat-label">Gains du jour</ion-text>
+          <ion-row class="ion-align-items-baseline stat-value-row">
+            <ion-text class="stat-value">15,500</ion-text>
+            <ion-text class="stat-unit">&nbsp;FCFA</ion-text>
+          </ion-row>
+          <ion-text class="stat-trend trend-up">+12% vs hier</ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <!-- Collectes -->
+    <ion-col size="6">
+      <ion-card class="stat-card">
+        <ion-card-content class="stat-card-content">
+          <ion-row class="icon-row">
+            <div class="stat-icon-box">
+              <ion-icon name="refresh-circle-outline" class="stat-icon"></ion-icon>
+            </div>
+          </ion-row>
+          <ion-text class="stat-label">Collectes</ion-text>
+          <ion-row class="ion-align-items-baseline stat-value-row">
+            <ion-text class="stat-value">08</ion-text>
+            <ion-text class="stat-unit">&nbsp;Missions</ion-text>
+          </ion-row>
+          <ion-text class="stat-trend trend-up">+2 complètées</ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+
+  <!-- ===== CARTE MAP ===== -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="map-card">
+        <!-- Image map placeholder -->
+        <ion-img
+          src="https://picsum.photos/id/1074/700/400"
+          class="map-img">
+        </ion-img>
+
+        <!-- Point de position (pulsant) -->
+        <div class="map-dot-wrapper">
+          <div class="map-dot-pulse"></div>
+          <div class="map-dot"></div>
+        </div>
+
+        <!-- Pill adresse -->
+        <div class="map-address-pill">
+          <ion-icon name="location-outline" class="pill-icon"></ion-icon>
+          <ion-text class="pill-text">Quartier Akwa, Douala</ion-text>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- ===== MISSIONS PROCHES ===== -->
+  <ion-row class="ion-align-items-center ion-justify-content-between ion-padding-horizontal missions-header-row">
+    <ion-col size="auto">
+      <ion-text class="section-title">Missions Proches</ion-text>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-text class="voir-tout" (click)="voirTout()">Tout voir</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <!-- Liste missions -->
+  <ion-list lines="none" class="missions-list">
+    <ion-card
+      *ngFor="let mission of missions"
+      class="mission-card"
+      (click)="voirMission(mission)">
+      <ion-card-content class="mission-card-content">
+
+        <!-- Icône -->
+        <div class="mission-icon-box" [class.icon-active]="mission.active">
+          <ion-icon name="trash-outline" class="mission-icon" [class.icon-color-active]="mission.active"></ion-icon>
+        </div>
+
+        <!-- Infos -->
+        <ion-col class="mission-info">
+          <ion-text class="mission-name">{{ mission.name }}</ion-text>
+          <ion-text class="mission-meta">{{ mission.location }} • {{ mission.distance }}</ion-text>
+        </ion-col>
+
+        <!-- Prix + badge type -->
+        <ion-col size="auto" class="mission-right">
+          <ion-text class="mission-price">{{ mission.price | number:'1.0-0' }} F</ion-text>
+          <ion-badge class="mission-type-badge"
+            [ngClass]="'badge-' + mission.type.toLowerCase().replace('/', '-')">
+            {{ mission.type }}
+          </ion-badge>
+        </ion-col>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <!-- Spacer -->
+  <div class="bottom-spacer"></div>
+
+  <!-- ===== FAB "Voir les demandes" ===== -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="demandes-fab">
+    <ion-fab-button class="demandes-fab-btn" color="success" (click)="voirDemandes()">
+      <ion-row class="ion-align-items-center fab-inner">
+        <ion-icon name="newspaper-outline" class="fab-icon"></ion-icon>
+        <ion-label class="fab-label">Voir les demandes</ion-label>
+      </ion-row>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

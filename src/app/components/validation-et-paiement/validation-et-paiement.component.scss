@@ -1,0 +1,352 @@
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --green-dark: #1A1A2E;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #F5F7F5;
+  --card-radius: 18px;
+  --shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+}
+
+// =============================================
+// Header
+// =============================================
+.val-header ion-toolbar {
+  --background: #ffffff;
+  --border-color: transparent;
+  --padding-start: 8px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
+.back-btn {
+  --color: var(--text-dark);
+  --icon-font-size: 1.3rem;
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+  text-align: left;
+  padding-left: 4px;
+}
+
+// =============================================
+// Page
+// =============================================
+.val-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Blocs de section
+// =============================================
+.section-block {
+  padding: 20px 16px 0;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 1.2px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+// =============================================
+// Carte Résumé
+// =============================================
+.resume-card {
+  margin: 0;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  background: #ffffff;
+  border: none;
+}
+
+.resume-card-content {
+  padding: 16px !important;
+}
+
+// Client
+.client-row {
+  margin-bottom: 4px;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.client-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--green-light);
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.client-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+}
+
+.client-badge {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--green-primary);
+  margin-top: 2px;
+}
+
+// Divider
+.inner-divider {
+  height: 1px;
+  background: #F0F0F0;
+  margin: 14px 0;
+}
+
+// Détails type + volume
+.details-row {
+  gap: 10px;
+}
+
+.detail-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green-light);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.detail-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(46, 204, 113, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detail-icon {
+  font-size: 1.1rem;
+  color: var(--green-primary);
+}
+
+.detail-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.detail-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.2px;
+}
+
+// =============================================
+// Zone photo
+// =============================================
+.photo-zone {
+  border: 2px dashed #C8E6C9;
+  border-radius: var(--card-radius);
+  background: #ffffff;
+  overflow: hidden;
+  min-height: 190px;
+}
+
+// Placeholder (pas de photo)
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 24px;
+  gap: 12px;
+  text-align: center;
+}
+
+.camera-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.camera-icon {
+  font-size: 1.6rem;
+  color: var(--green-primary);
+}
+
+.photo-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 260px;
+}
+
+.photo-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --color: #ffffff;
+  --border-radius: 30px;
+  --box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4);
+  height: 46px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 4px;
+  padding: 0 24px;
+}
+
+// Aperçu photo
+.photo-preview-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.retake-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  --background: rgba(0,0,0,0.5);
+  --color: #ffffff;
+  --border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+// =============================================
+// Paiement reçu
+// =============================================
+.payment-section {
+  padding-top: 16px;
+}
+
+.payment-card {
+  margin: 0;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  background: var(--green-light);
+  border: none;
+}
+
+.payment-card-content {
+  padding: 16px !important;
+}
+
+.payment-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.payment-icon {
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.payment-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.payment-amount {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.payment-id {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+// =============================================
+// Footer avec boutons
+// =============================================
+.bottom-spacer { height: 20px; }
+
+.val-footer {
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+}
+
+.footer-btns {
+  padding: 14px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-confirmer {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --color: #ffffff;
+  --border-radius: 30px;
+  --box-shadow: 0 6px 22px rgba(46, 204, 113, 0.4);
+  height: 54px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.btn-terminer {
+  --background: var(--text-dark);
+  --background-activated: #2d2d4e;
+  --color: #ffffff;
+  --border-radius: 30px;
+  --box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  height: 54px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+}

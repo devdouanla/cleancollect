@@ -1,0 +1,459 @@
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --green-dark: #1B5E20;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #F0F7F0;
+  --card-radius: 18px;
+  --shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.tdb-header {
+  ion-toolbar {
+    --background: #F0F7F0;
+    --border-color: transparent;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+  }
+}
+
+.header-row {
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.avatar-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--green-primary);
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bonjour-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+  font-weight: 400;
+}
+
+.user-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  display: block;
+  letter-spacing: -0.3px;
+}
+
+// Toggle EN LIGNE
+.status-card {
+  margin: 0;
+  border-radius: 30px;
+  box-shadow: none;
+  background: #ffffff;
+  border: 1.5px solid #E0E0E0;
+}
+
+.status-card-content {
+  padding: 6px 10px 6px 14px !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  &.status-label-on {
+    color: var(--green-primary);
+  }
+}
+
+.status-toggle {
+  --track-background: #E0E0E0;
+  --track-background-checked: var(--green-primary);
+  --handle-background: #ffffff;
+  --handle-background-checked: #ffffff;
+  width: 42px;
+  height: 24px;
+}
+
+// =============================================
+// Page
+// =============================================
+.tdb-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Titre
+// =============================================
+.title-row {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+  display: block;
+}
+
+// =============================================
+// Cartes stats
+// =============================================
+.stats-row {
+  margin-bottom: 4px;
+  gap: 0;
+}
+
+.stat-card {
+  margin: 0 0 0 0;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  background: #ffffff;
+  border: none;
+  height: 100%;
+}
+
+.stat-card-content {
+  padding: 16px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.icon-row {
+  margin-bottom: 6px;
+}
+
+.stat-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon {
+  font-size: 1.3rem;
+  color: var(--green-primary);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+}
+
+.stat-value-row {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.stat-unit {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.stat-trend {
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: block;
+  margin-top: 2px;
+
+  &.trend-up {
+    color: var(--green-primary);
+  }
+}
+
+// =============================================
+// Carte Map
+// =============================================
+.map-card {
+  margin: 14px 0 0;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+  border: none;
+  background: #d0ddd0;
+}
+
+.map-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.4) brightness(1.1);
+}
+
+// Point de position animé
+.map-dot-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.map-dot-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(46, 204, 113, 0.3);
+  animation: pulse 1.8s ease-out infinite;
+}
+
+.map-dot {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(46, 204, 113, 0.5);
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+}
+
+// Pill adresse
+.map-address-pill {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 8px 16px 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+.pill-icon {
+  font-size: 1rem;
+  color: var(--green-primary);
+  flex-shrink: 0;
+}
+
+.pill-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+// =============================================
+// Missions Proches
+// =============================================
+.missions-header-row {
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+.voir-tout {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green-primary);
+  cursor: pointer;
+}
+
+.missions-list {
+  background: transparent;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mission-card {
+  margin: 0;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  background: #ffffff;
+  border: none;
+}
+
+.mission-card-content {
+  padding: 14px 16px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+// Icône mission
+.mission-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #F0F0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.icon-active {
+    background: var(--green-light);
+  }
+}
+
+.mission-icon {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+
+  &.icon-color-active {
+    color: var(--green-primary);
+  }
+}
+
+// Infos
+.mission-info {
+  flex: 1;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mission-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.mission-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+// Côté droit : prix + badge
+.mission-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  padding: 0 !important;
+  flex-shrink: 0;
+}
+
+.mission-price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  letter-spacing: -0.3px;
+}
+
+.mission-type-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+
+  &.badge-plastique {
+    --background: #E8F5E9;
+    --color: #2E7D32;
+  }
+
+  &.badge-verre-mixte,
+  &.badge-verre\/mixte {
+    --background: #FFF3E0;
+    --color: #E65100;
+  }
+
+  &.badge-carton {
+    --background: #FFF3E0;
+    --color: #E65100;
+  }
+
+  &.badge-métal {
+    --background: #E3F2FD;
+    --color: #1565C0;
+  }
+}
+
+// =============================================
+// FAB "Voir les demandes"
+// =============================================
+.bottom-spacer {
+  height: 90px;
+}
+
+.demandes-fab {
+  margin-bottom: 10px;
+}
+
+.demandes-fab-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 28px rgba(46, 204, 113, 0.45);
+  width: 220px;
+  height: 56px;
+}
+
+.fab-inner {
+  flex-wrap: nowrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.fab-icon {
+  font-size: 1.3rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.fab-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}

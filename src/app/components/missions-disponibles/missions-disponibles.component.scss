@@ -1,0 +1,323 @@
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #F0F7F0;
+  --card-radius: 18px;
+  --shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.missions-header ion-toolbar {
+  --background: #F0F7F0;
+  --border-color: transparent;
+  --padding-start: 16px;
+  --padding-end: 12px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
+.logo-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--green-light);
+  border: 2px solid var(--green-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon {
+  font-size: 1.1rem;
+  color: var(--green-primary);
+}
+
+.app-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+  margin-left: 6px;
+}
+
+.notif-btn {
+  --color: var(--text-dark);
+  --padding-start: 4px;
+  --padding-end: 4px;
+}
+
+.notif-icon {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+}
+
+.avatar-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--green-primary);
+  margin-left: 4px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// =============================================
+// Page
+// =============================================
+.missions-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Titre
+// =============================================
+.title-row {
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+  display: block;
+}
+
+// =============================================
+// Filtres
+// =============================================
+.filters-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  gap: 8px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.filter-chip {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  height: 38px;
+  border-radius: 30px;
+  margin: 0;
+  --background: #ffffff;
+  --color: var(--text-dark);
+  border: 1.5px solid #E0E0E0;
+
+  .chip-icon {
+    font-size: 1rem;
+    margin-right: 4px;
+    color: var(--text-muted);
+  }
+
+  &.filter-active {
+    --background: var(--green-primary);
+    --color: #ffffff;
+    border-color: var(--green-primary);
+
+    .chip-icon { color: #ffffff; }
+  }
+}
+
+// =============================================
+// Liste des missions
+// =============================================
+.missions-list {
+  background: transparent;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mission-card {
+  margin: 0;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  background: #ffffff;
+  border: none;
+  overflow: hidden;
+}
+
+// --- Image + overlays ---
+.mission-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #E0E8E0;
+  overflow: hidden;
+}
+
+.mission-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.3) brightness(1.05);
+}
+
+// Pill distance
+.distance-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 5px 12px 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.distance-icon {
+  font-size: 0.9rem;
+  color: var(--green-primary);
+}
+
+.distance-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+// Badge type matériau
+.type-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+
+  &.type-plastique {
+    --background: var(--green-primary);
+    --color: #ffffff;
+  }
+
+  &.type-papier {
+    --background: #64B5F6;
+    --color: #ffffff;
+  }
+
+  &.type-verre {
+    --background: #FFA726;
+    --color: #ffffff;
+  }
+
+  &.type-metal {
+    --background: #78909C;
+    --color: #ffffff;
+  }
+}
+
+// --- Corps de la carte ---
+.mission-body {
+  padding: 14px 16px 16px !important;
+}
+
+.mission-location {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+.meta-row {
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+
+.meta-icon {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.mission-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+// Prix
+.price-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 2px !important;
+}
+
+.price-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.price-unit {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+// Bouton Accepter
+.accept-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --color: #ffffff;
+  --border-radius: 30px;
+  --box-shadow: 0 4px 18px rgba(46, 204, 113, 0.4);
+  margin-top: 14px;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+// =============================================
+// Tab Bar
+// =============================================
+.bottom-spacer { height: 20px; }
+
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  height: 62px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+  --color: #AAAAAA;
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}

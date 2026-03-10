@@ -1,0 +1,180 @@
+<ion-header class="ion-no-border profil-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/accueil" text="" class="back-btn"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Profil Utilisateur</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="edit-btn" (click)="editerProfil()">
+        <ion-icon name="create-outline" slot="icon-only" class="edit-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="profil-page">
+
+  <!-- ===== AVATAR + NOM ===== -->
+  <div class="avatar-section">
+    <div class="avatar-wrapper">
+      <ion-img [src]="user.avatarUrl" class="avatar-img"></ion-img>
+      <button class="avatar-camera-btn" (click)="changerPhoto()">
+        <ion-icon name="camera" class="avatar-camera-icon"></ion-icon>
+      </button>
+    </div>
+    <ion-text class="user-name">{{ user.name }}</ion-text>
+    <ion-text class="user-meta">Membre depuis {{ user.memberSince }} • {{ user.city }}</ion-text>
+  </div>
+
+  <!-- ===== INFORMATIONS PERSONNELLES ===== -->
+  <div class="section-block">
+    <ion-text class="section-label">INFORMATIONS PERSONNELLES</ion-text>
+
+    <ion-card class="info-card">
+      <ion-card-content class="info-card-content">
+
+        <!-- Nom complet -->
+        <ion-row class="ion-align-items-center info-row" (click)="editerChamp('nom')">
+          <ion-col size="auto">
+            <div class="info-icon-box green">
+              <ion-icon name="person-outline" class="info-icon"></ion-icon>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-text class="info-label">NOM COMPLET</ion-text>
+            <ion-text class="info-value">{{ user.name }}</ion-text>
+          </ion-col>
+        </ion-row>
+
+        <div class="row-divider"></div>
+
+        <!-- Téléphone -->
+        <ion-row class="ion-align-items-center info-row" (click)="editerChamp('telephone')">
+          <ion-col size="auto">
+            <div class="info-icon-box green">
+              <ion-icon name="call-outline" class="info-icon"></ion-icon>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-text class="info-label">TÉLÉPHONE</ion-text>
+            <ion-text class="info-value">{{ user.phone }}</ion-text>
+          </ion-col>
+        </ion-row>
+
+        <div class="row-divider"></div>
+
+        <!-- Email -->
+        <ion-row class="ion-align-items-center info-row" (click)="editerChamp('email')">
+          <ion-col size="auto">
+            <div class="info-icon-box green">
+              <ion-icon name="mail-outline" class="info-icon"></ion-icon>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-text class="info-label">E-MAIL</ion-text>
+            <ion-text class="info-value">{{ user.email }}</ion-text>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- ===== PAIEMENT ===== -->
+  <div class="section-block">
+    <ion-row class="ion-align-items-center ion-justify-content-between section-header-row">
+      <ion-col size="auto">
+        <ion-text class="section-label">PAIEMENT</ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-text class="section-action" (click)="ajouterPaiement()">Ajouter</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-card class="info-card">
+      <ion-card-content class="info-card-content">
+
+        <ion-row *ngFor="let methode of paiements; let last = last" class="ion-align-items-center payment-row"
+          (click)="voirPaiement(methode)">
+          <ion-col size="auto">
+            <div class="payment-logo-box" [ngClass]="'logo-' + methode.key">
+              <ion-icon [name]="methode.icon" class="payment-logo-icon"></ion-icon>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-text class="payment-name">{{ methode.name }}</ion-text>
+            <ion-text class="payment-mask">{{ methode.mask }}</ion-text>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+          </ion-col>
+          <div *ngIf="!last" class="row-divider"></div>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- ===== APPLICATION ===== -->
+  <div class="section-block">
+    <ion-text class="section-label">APPLICATION</ion-text>
+
+    <ion-card class="info-card">
+      <ion-card-content class="info-card-content">
+
+        <ion-row *ngFor="let item of appSettings; let last = last">
+          <ion-row class="ion-align-items-center ion-justify-content-between app-setting-row"
+            (click)="ouvrirSetting(item)">
+            <ion-col size="auto" class="ion-no-padding">
+              <ion-row class="ion-align-items-center" style="gap: 12px; flex-wrap: nowrap;">
+                <ion-icon [name]="item.icon" class="setting-icon"></ion-icon>
+                <ion-text class="setting-label">{{ item.label }}</ion-text>
+              </ion-row>
+            </ion-col>
+            <ion-col size="auto" class="ion-no-padding">
+              <ion-row class="ion-align-items-center" style="gap: 4px; flex-wrap: nowrap;">
+                <ion-text *ngIf="item.value" class="setting-value">{{ item.value }}</ion-text>
+                <ion-icon name="chevron-forward-outline" class="chevron-icon"></ion-icon>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <div *ngIf="!last" class="row-divider"></div>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- ===== DÉCONNEXION ===== -->
+  <div class="logout-section" (click)="seDeconnecter()">
+    <ion-icon name="log-out-outline" class="logout-icon"></ion-icon>
+    <ion-text class="logout-text">Déconnexion</ion-text>
+  </div>
+
+  <!-- Version -->
+  <ion-text class="app-version">CleanCollect v2.4.0 (Build 102)</ion-text>
+
+  <div class="bottom-spacer"></div>
+
+</ion-content>
+
+<!-- ===== TAB BAR ===== -->
+<ion-footer class="ion-no-border">
+  <ion-tab-bar slot="bottom" class="bottom-tab-bar">
+    <ion-tab-button class="tab-btn">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button class="tab-btn">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>Communauté</ion-label>
+    </ion-tab-button>
+    <ion-tab-button class="tab-btn">
+      <ion-icon name="car-outline"></ion-icon>
+      <ion-label>Collecte</ion-label>
+    </ion-tab-button>
+    <ion-tab-button class="tab-btn tab-active">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

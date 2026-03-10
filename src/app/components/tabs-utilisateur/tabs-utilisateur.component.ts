@@ -4,23 +4,16 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import {
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet
+  IonTabs, IonTabBar, IonTabButton,
+  IonIcon, IonLabel, IonRouterOutlet
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
-  homeOutline,
-  storefrontOutline,
-  addOutline,
-  timeOutline,
-  personOutline
+  homeOutline, storefrontOutline, addOutline,
+  timeOutline, personOutline
 } from 'ionicons/icons';
 
-/** Mappe chaque route vers l'onglet à surligner */
+/** Mappe chaque route → onglet utilisateur actif */
 const ROUTE_TO_TAB: Record<string, string> = {
   'accueil':                     'accueil',
   'marche-du-recyclage':         'marche',
@@ -32,35 +25,28 @@ const ROUTE_TO_TAB: Record<string, string> = {
   'prendre_rendez_vous':         'historique',
   'confirmer_rendez_vous':       'historique',
   'collecte_termine':            'historique',
-  'profil':                      'profil',
+  'profil-utilisateur':          'profil',
 };
 
-/** Routes sans tab bar (onboarding) */
 const HIDDEN_ROUTES = new Set([
-  '',
-  'splash-screen-cleancollect',
-  'onboarding-paiement-securis',
+  '', 'splash-screen-cleancollect', 'onboarding-paiement-securis'
 ]);
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss'],
+  selector: 'app-tabs-utilisateur',
+  templateUrl: './tabs-utilisateur.component.html',
+  styleUrls: ['./tabs-utilisateur.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonIcon,
-    IonLabel,
-    IonRouterOutlet
+    IonTabs, IonTabBar, IonTabButton,
+    IonIcon, IonLabel, IonRouterOutlet
   ]
 })
-export class TabsComponent implements OnInit, OnDestroy {
+export class TabsUtilisateurComponent implements OnInit, OnDestroy {
 
   activeTab  = 'marche';
-  isVisible  = false;
+  isVisible  = true;
 
   private routerSub!: Subscription;
 
@@ -70,15 +56,12 @@ export class TabsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.syncWithRoute(this.router.url);
-
     this.routerSub = this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd) => this.syncWithRoute(e.urlAfterRedirects));
   }
 
-  ngOnDestroy(): void {
-    this.routerSub?.unsubscribe();
-  }
+  ngOnDestroy(): void { this.routerSub?.unsubscribe(); }
 
   private syncWithRoute(url: string): void {
     const segment = url.split('?')[0].split('#')[0].split('/').filter(Boolean).pop() ?? '';
@@ -89,10 +72,10 @@ export class TabsComponent implements OnInit, OnDestroy {
   navigate(tab: string): void {
     switch (tab) {
       case 'accueil':
-      case 'marche':     this.router.navigate(['/tabs/marche-du-recyclage']);         break;
-      case 'publier':    this.router.navigate(['/tabs/creer_une_annonce_recyclage']); break;
-      case 'historique': this.router.navigate(['/tabs/historique_collecte']);         break;
-      case 'profil':     console.log('Profil — route à créer');                       break;
+      case 'marche':     this.router.navigate(['/utilisateur/marche-du-recyclage']);         break;
+      case 'publier':    this.router.navigate(['/utilisateur/creer_une_annonce_recyclage']); break;
+      case 'historique': this.router.navigate(['/utilisateur/historique_collecte']);          break;
+      case 'profil':     this.router.navigate(['/utilisateur/profil-utilisateur']);           break;
     }
   }
 }
