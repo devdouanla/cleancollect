@@ -1,0 +1,135 @@
+<ion-header class="ion-no-border suivi-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/historique_collecte" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Suivi de la Transaction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="suivi-page">
+
+  <!-- Carte article -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="article-card">
+        <ion-card-content class="article-card-content">
+          <ion-row class="ion-align-items-center" style="gap: 14px; flex-wrap: nowrap;">
+            <ion-col size="auto">
+              <ion-img [src]="transaction.imageUrl" class="article-img"></ion-img>
+            </ion-col>
+            <ion-col>
+              <ion-text class="article-title">{{ transaction.title }}</ion-text>
+              <ion-text class="article-seller">Vendeur: {{ transaction.seller }}</ion-text>
+              <ion-text class="article-price">{{ transaction.price | number:'1.0-0' }} CFA</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- État de la collecte (timeline) -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col><ion-text class="section-title">État de la collecte</ion-text></ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-row class="timeline-container">
+
+        <ion-col size="12" class="timeline-step">
+          <ion-row class="ion-align-items-start step-row" style="flex-wrap:nowrap;">
+            <ion-col size="auto" class="step-icon-col">
+              <ion-row class="step-circle step-done ion-justify-content-center ion-align-items-center">
+                <ion-icon name="checkmark-outline" class="step-check-icon"></ion-icon>
+              </ion-row>
+              <ion-row class="step-line step-line-done ion-justify-content-center">
+                <ion-col class="line-segment"></ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col class="step-content">
+              <ion-text class="step-title">Rendez-vous programmé</ion-text>
+              <ion-text class="step-status step-status-done">Terminé • 10:30 AM</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size="12" class="timeline-step">
+          <ion-row class="ion-align-items-start step-row" style="flex-wrap:nowrap;">
+            <ion-col size="auto" class="step-icon-col">
+              <ion-row class="step-circle step-done ion-justify-content-center ion-align-items-center">
+                <ion-icon name="checkmark-outline" class="step-check-icon"></ion-icon>
+              </ion-row>
+              <ion-row class="step-line step-line-done ion-justify-content-center">
+                <ion-col class="line-segment"></ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col class="step-content">
+              <ion-text class="step-title">Paiement effectué</ion-text>
+              <ion-text class="step-status step-status-done">Confirmé par l'acheteur</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col size="12" class="timeline-step">
+          <ion-row class="ion-align-items-start step-row" style="flex-wrap:nowrap;">
+            <ion-col size="auto" class="step-icon-col">
+              <ion-row class="step-circle step-pending ion-justify-content-center ion-align-items-center">
+                <ion-icon name="time-outline" class="step-pending-icon"></ion-icon>
+              </ion-row>
+            </ion-col>
+            <ion-col class="step-content">
+              <ion-text class="step-title">Échange réalisé</ion-text>
+              <ion-text class="step-status step-status-pending">En attente de votre confirmation</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <!-- Lieu + Map -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="map-card">
+        <ion-card-content class="map-card-content">
+          <ion-row class="ion-align-items-center lieu-header-row">
+            <ion-col size="auto"><ion-icon name="location" color="success" class="lieu-icon"></ion-icon></ion-col>
+            <ion-col>
+              <ion-text class="lieu-title">Lieu de collecte</ion-text>
+              <ion-text class="lieu-address">{{ transaction.address }}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-img src="https://picsum.photos/id/1050/600/250" class="map-img"></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- Détails récapitulatifs -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col><ion-text class="recap-label">DÉTAILS RÉCAPITULATIFS</ion-text></ion-col>
+  </ion-row>
+  <ion-row class="recap-row ion-align-items-center ion-padding-horizontal ion-justify-content-between"
+    *ngFor="let detail of recapDetails; let last = last" [class.last-recap]="last">
+    <ion-col><ion-text class="recap-key">{{ detail.key }}</ion-text></ion-col>
+    <ion-col size="auto"><ion-text class="recap-value">{{ detail.value }}</ion-text></ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+</ion-content>
+
+<!-- Footer dédié : bouton CTA de cette page uniquement (pas de tab bar) -->
+<ion-footer class="ion-no-border suivi-footer">
+  <ion-row class="ion-padding-horizontal ion-padding-vertical">
+    <ion-col>
+      <!-- "Confirmer réception" → /collecte_termine -->
+      <ion-button expand="block" shape="round" color="success" class="confirm-btn" (click)="confirmerReception()">
+        <ion-icon name="shield-checkmark-outline" slot="start" class="confirm-icon"></ion-icon>
+        <ion-label class="confirm-label">Confirmer réception</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

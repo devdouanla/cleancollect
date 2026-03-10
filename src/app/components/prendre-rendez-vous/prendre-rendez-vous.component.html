@@ -1,0 +1,165 @@
+<ion-header class="ion-no-border rdv-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Proposer un RDV</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="rdv-page">
+
+  <!-- ===== DATE ET HEURE ===== -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col>
+      <ion-text class="section-title">Date et Heure</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <!-- Calendrier custom -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="calendar-card">
+        <ion-card-content class="calendar-content">
+
+          <!-- Navigation mois -->
+          <ion-row class="ion-align-items-center ion-justify-content-between month-nav-row">
+            <ion-col size="auto">
+              <ion-button fill="clear" class="nav-btn" (click)="prevMonth()">
+                <ion-icon name="chevron-back-outline" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-text class="month-label">{{ currentMonthLabel }}</ion-text>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-button fill="clear" class="nav-btn" (click)="nextMonth()">
+                <ion-icon name="chevron-forward-outline" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+
+          <!-- Jours de la semaine -->
+          <ion-row class="weekdays-row">
+            <ion-col *ngFor="let day of weekDays" class="weekday-col">
+              <ion-text class="weekday-label">{{ day }}</ion-text>
+            </ion-col>
+          </ion-row>
+
+          <!-- Grille des jours -->
+          <ion-row *ngFor="let week of calendarWeeks" class="week-row">
+            <ion-col *ngFor="let day of week" class="day-col" (click)="day.currentMonth && selectDay(day.date)">
+              <ion-text
+                class="day-text"
+                [class.day-other-month]="!day.currentMonth"
+                [class.day-selected]="isSelectedDay(day.date) && day.currentMonth"
+                [class.day-today]="isTodayDay(day.date) && day.currentMonth">
+                {{ day.date.getDate() }}
+              </ion-text>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- Sélecteur Heure + Minutes (drum scroll) -->
+  <ion-row class="ion-padding-horizontal time-picker-row">
+
+    <!-- HEURE -->
+    <ion-col>
+      <ion-text class="time-label">HEURE</ion-text>
+      <ion-card class="time-drum-card">
+        <ion-card-content class="time-drum-content">
+          <ion-text
+            *ngFor="let h of visibleHours"
+            class="drum-item"
+            [class.drum-selected]="h === selectedHour"
+            (click)="selectHour(h)">
+            {{ h | number:'2.0-0' }}
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <!-- MINUTES -->
+    <ion-col>
+      <ion-text class="time-label">MINUTES</ion-text>
+      <ion-card class="time-drum-card">
+        <ion-card-content class="time-drum-content">
+          <ion-text
+            *ngFor="let m of visibleMinutes"
+            class="drum-item"
+            [class.drum-selected]="m === selectedMinute"
+            (click)="selectMinute(m)">
+            {{ m | number:'2.0-0' }}
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+
+  <!-- ===== LIEU DE RENCONTRE ===== -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col>
+      <ion-text class="section-title">Lieu de rencontre</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <!-- Map placeholder -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="map-card">
+        <ion-img src="https://maps.googleapis.com/maps/api/staticmap?center=Bastos,Yaounde,Cameroon&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7CBastos,Yaounde&key=YOUR_KEY" class="map-img"></ion-img>
+        <!-- Overlay adresse -->
+        <ion-row class="map-overlay-row ion-justify-content-center">
+          <ion-col size="auto">
+            <ion-card class="location-pill">
+              <ion-card-content class="location-pill-content">
+                <ion-icon name="navigate" color="success" class="navigate-icon"></ion-icon>
+                <ion-text class="location-pill-text">{{ selectedLocation }}</ion-text>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- Précisions sur le lieu -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-text class="precision-label">PRÉCISIONS SUR LE LIEU</ion-text>
+      <ion-textarea
+        [(ngModel)]="locationPrecision"
+        placeholder="Ex: Devant la boulangerie Select, portail vert..."
+        class="precision-textarea"
+        fill="outline"
+        shape="round"
+        rows="3">
+      </ion-textarea>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+
+</ion-content>
+
+<!-- Footer bouton envoyer -->
+<ion-footer class="ion-no-border rdv-footer">
+  <ion-row class="ion-padding">
+    <ion-col>
+      <ion-button
+        expand="block"
+        shape="round"
+        color="success"
+        class="send-btn"
+        (click)="sendProposal()">
+        <ion-label class="send-label">Envoyer la proposition</ion-label>
+        <ion-icon name="arrow-forward-outline" slot="end" class="send-arrow"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

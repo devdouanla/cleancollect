@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border historique-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/marche-du-recyclage" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Historique</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="historique-page">
+
+  <!-- Tabs filtre -->
+  <ion-row class="filter-tabs-row ion-padding-horizontal">
+    <ion-col size="auto" *ngFor="let tab of filterTabs" (click)="selectTab(tab.key)">
+      <ion-text class="filter-tab" [class.filter-tab-active]="selectedTab === tab.key">{{ tab.label }}</ion-text>
+      <ion-row *ngIf="selectedTab === tab.key" class="tab-underline-row">
+        <ion-col class="tab-underline"></ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row class="full-separator"><ion-col></ion-col></ion-row>
+
+  <!-- Liste -->
+  <ion-list lines="none" class="collecte-list">
+    <ion-card *ngFor="let item of filteredItems" class="collecte-card">
+      <ion-card-content class="collecte-card-content">
+        <ion-row class="ion-align-items-center top-row">
+          <ion-col size="auto">
+            <ion-row class="icon-box ion-justify-content-center ion-align-items-center">
+              <ion-icon [name]="item.icon" class="collecte-icon" color="success"></ion-icon>
+            </ion-row>
+          </ion-col>
+          <ion-col class="title-col">
+            <ion-text class="collecte-title">{{ item.title }}</ion-text>
+            <ion-text class="collecte-date">{{ item.date }}</ion-text>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-badge class="status-badge" [ngClass]="'status-' + item.status">{{ item.statusLabel }}</ion-badge>
+          </ion-col>
+        </ion-row>
+        <ion-row class="inner-separator"><ion-col></ion-col></ion-row>
+        <ion-row class="ion-align-items-center bottom-row">
+          <ion-col>
+            <ion-text class="amount-label">{{ item.amountLabel }}</ion-text>
+            <ion-text class="amount-value">{{ item.amount | number:'1.0-0' }} FCFA</ion-text>
+          </ion-col>
+          <ion-col size="auto">
+            <!--
+              "Suivi GPS"  → /suivi_collecte
+              "Détails"    → /collecte_termine
+            -->
+            <ion-button shape="round"
+              [fill]="item.status === 'en-cours' ? 'outline' : 'solid'"
+              [color]="item.status === 'en-cours' ? 'dark' : 'success'"
+              class="action-btn"
+              (click)="onAction(item)">
+              <ion-label class="action-label">{{ item.actionLabel }}</ion-label>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-row class="bottom-spacer"></ion-row>
+</ion-content>

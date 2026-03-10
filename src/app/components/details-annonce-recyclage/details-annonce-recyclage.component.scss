@@ -1,0 +1,318 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-dark: #1B5E20;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #6C757D;
+  --bg-page: #ffffff;
+  --card-radius: 16px;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.details-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+.share-btn {
+  --color: var(--text-dark);
+}
+
+// =============================================
+// Page
+// =============================================
+.details-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Carrousel photos
+// =============================================
+.photo-slides {
+  width: 100%;
+  height: 260px;
+  margin: 0;
+
+  ion-slide {
+    padding: 0 16px;
+  }
+}
+
+.slide-image {
+  width: 100%;
+  height: 240px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+// Compteur 1/5
+.slide-counter-row {
+  margin-top: -44px;
+  padding-right: 28px !important;
+  position: relative;
+  z-index: 10;
+}
+
+.slide-counter {
+  --background: rgba(255, 255, 255, 0.92);
+  --color: var(--text-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 5px 12px;
+}
+
+// =============================================
+// Titre + bookmark
+// =============================================
+.main-content {
+  margin-top: 16px;
+}
+
+.title-row {
+  margin-bottom: 10px;
+}
+
+.annonce-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.25;
+  display: block;
+  letter-spacing: -0.5px;
+}
+
+.bookmark-btn {
+  --padding-start: 0;
+  --padding-end: 0;
+  margin-top: 2px;
+}
+
+.bookmark-icon {
+  font-size: 1.8rem;
+  color: #CCCCCC;
+
+  &.bookmarked {
+    color: var(--green-primary);
+  }
+}
+
+// =============================================
+// Prix + Quantité
+// =============================================
+.price-qty-row {
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.price-badge {
+  --background: var(--green-light);
+  --color: var(--green-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+  border-radius: 20px;
+  padding: 7px 16px;
+  letter-spacing: -0.3px;
+}
+
+.qty-row {
+  gap: 5px;
+}
+
+.qty-icon {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.qty-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+// =============================================
+// Carte vendeur
+// =============================================
+.seller-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #F8F9FA;
+  margin: 0 0 20px;
+  border: none;
+  cursor: pointer;
+
+  .seller-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+  }
+}
+
+.seller-avatar {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--green-primary);
+}
+
+.seller-info-col {
+  flex: 1;
+}
+
+.seller-name-row {
+  gap: 5px;
+  margin-bottom: 3px;
+}
+
+.seller-name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.verified-icon {
+  font-size: 1rem;
+}
+
+.seller-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.chevron-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+// =============================================
+// Sections info (localisation + description)
+// =============================================
+.info-section-row {
+  margin-bottom: 18px;
+  flex-wrap: nowrap;
+}
+
+.info-icon-col {
+  padding-right: 10px !important;
+  padding-top: 2px !important;
+  flex-shrink: 0;
+}
+
+.section-icon {
+  font-size: 1.4rem;
+}
+
+.info-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.info-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.info-section-body {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: block;
+  line-height: 1.5;
+}
+
+// =============================================
+// Carte map
+// =============================================
+.map-row {
+  margin-bottom: 8px;
+}
+
+.map-card {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin: 0;
+  border: none;
+}
+
+.map-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.bottom-spacer {
+  height: 16px;
+}
+
+// =============================================
+// Footer actions
+// =============================================
+.action-footer {
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.action-row {
+  gap: 10px;
+  padding-bottom: 8px !important;
+}
+
+.contact-btn {
+  --border-color: var(--green-primary);
+  --color: var(--green-primary);
+  --border-radius: 32px;
+  --border-width: 2px;
+  height: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.message-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 4px 16px rgba(46, 204, 113, 0.35);
+  height: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.rdv-row {
+  padding-top: 0 !important;
+}
+
+.rdv-btn {
+  --background: #1A1A2E;
+  --background-activated: #2d2d4e;
+  --border-radius: 32px;
+  --box-shadow: 0 4px 16px rgba(26, 26, 46, 0.25);
+  height: 52px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.1px;
+}

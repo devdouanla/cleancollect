@@ -1,0 +1,102 @@
+<ion-header class="ion-no-border missions-header">
+  <ion-toolbar>
+
+    <!-- Logo + Nom app -->
+    <ion-buttons slot="start">
+      <ion-button fill="clear" class="logo-btn">
+        <ion-avatar slot="start" class="logo-avatar">
+          <ion-icon name="leaf" class="logo-icon"></ion-icon>
+        </ion-avatar>
+        <ion-label class="app-name">CleanCollect</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Notif + Avatar -->
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="notif-btn">
+        <ion-icon name="notifications-outline" slot="icon-only" class="notif-icon"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" class="avatar-btn">
+        <ion-avatar slot="icon-only" class="header-avatar">
+          <ion-img src="https://picsum.photos/id/1005/200/200"></ion-img>
+        </ion-avatar>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="missions-page">
+
+  <!-- Titre -->
+  <ion-grid class="ion-no-padding title-grid">
+    <ion-row class="ion-padding-horizontal ion-padding-top">
+      <ion-col>
+        <ion-text class="page-title">Collectes à proximité</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Filtres horizontaux -->
+  <ion-grid class="ion-no-padding filters-grid">
+    <ion-row class="filters-row">
+      <ion-col size="auto" *ngFor="let f of filters">
+        <ion-chip class="filter-chip" [class.filter-active]="selectedFilter === f.key" (click)="selectFilter(f.key)">
+          <ion-icon [name]="f.icon" class="chip-icon"></ion-icon>
+          <ion-label>{{ f.label }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Liste des missions -->
+  <ion-list lines="none" class="missions-list">
+    <ion-card *ngFor="let mission of filteredMissions" class="mission-card">
+
+      <!-- Zone image + overlays -->
+      <ion-img [src]="mission.imageUrl" class="mission-img"></ion-img>
+
+      <!-- Overlays positionnés en absolute via CSS -->
+      <ion-chip class="distance-chip" disabled="true">
+        <ion-icon name="location-outline" class="distance-icon"></ion-icon>
+        <ion-label class="distance-text">{{ mission.distance }}</ion-label>
+      </ion-chip>
+
+      <ion-badge class="type-badge" [ngClass]="'type-' + mission.typeKey">
+        {{ mission.type.toUpperCase() }}
+      </ion-badge>
+
+      <!-- Corps de la carte -->
+      <ion-card-content class="mission-body">
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-align-items-start ion-justify-content-between">
+
+            <!-- Lieu + détails -->
+            <ion-col>
+              <ion-text class="mission-location">{{ mission.location }}</ion-text>
+              <ion-row class="ion-align-items-center meta-row">
+                <ion-icon name="cube-outline" class="meta-icon"></ion-icon>
+                <ion-text class="mission-meta">{{ mission.details }}</ion-text>
+              </ion-row>
+            </ion-col>
+
+            <!-- Prix -->
+            <ion-col size="auto" class="ion-no-padding price-col">
+              <ion-text class="price-value">{{ mission.price | number:'1.0-0' }}</ion-text>
+              <ion-text class="price-unit">FCFA</ion-text>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+        <!-- Bouton Accepter -->
+        <ion-button expand="block" shape="round" class="accept-btn" (click)="accepterMission(mission)">
+          <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+          <ion-label>Accepter la mission</ion-label>
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

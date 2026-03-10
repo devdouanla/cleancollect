@@ -1,0 +1,99 @@
+<ion-header class="ion-no-border termine-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Bouton × → retour au marché -->
+      <ion-button fill="outline" shape="round" class="close-btn" (click)="fermer()">
+        <ion-icon name="close-outline" slot="icon-only" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header-title">Collecte Terminée</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="termine-page">
+
+  <!-- Icône succès -->
+  <ion-row class="ion-justify-content-center success-icon-row">
+    <ion-col size="auto">
+      <ion-row class="icon-outer-circle ion-justify-content-center ion-align-items-center">
+        <ion-col size="auto">
+          <ion-row class="icon-inner-circle ion-justify-content-center ion-align-items-center">
+            <ion-icon name="checkmark-outline" class="check-icon"></ion-icon>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-padding-horizontal text-block">
+    <ion-col>
+      <ion-text class="success-title">Votre collecte a été effectuée avec succès.</ion-text>
+      <ion-text class="success-subtitle">Merci d'aider à garder nos quartiers propres à Yaoundé. Votre contribution compte !</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="full-separator"><ion-col></ion-col></ion-row>
+
+  <!-- Bloc notation -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="rating-card">
+        <ion-card-content class="rating-card-content">
+          <ion-row class="ion-justify-content-center">
+            <ion-col><ion-text class="rating-question">Comment s'est passée votre collecte ?</ion-text></ion-col>
+          </ion-row>
+
+          <!-- Étoiles interactives -->
+          <ion-row class="stars-row ion-justify-content-center">
+            <ion-col size="auto" *ngFor="let star of [1,2,3,4,5]" (click)="setRating(star)">
+              <ion-icon
+                [name]="star <= currentRating ? 'star' : 'star-outline'"
+                class="star-icon"
+                [class.star-filled]="star <= currentRating"
+                [class.star-empty]="star > currentRating">
+              </ion-icon>
+            </ion-col>
+          </ion-row>
+
+          <!-- Barres distribution -->
+          <ion-row class="rating-bar-row ion-align-items-center" *ngFor="let bar of ratingBars">
+            <ion-col size="auto" class="bar-label-col">
+              <ion-text class="bar-label">{{ bar.stars }}</ion-text>
+            </ion-col>
+            <ion-col class="bar-track-col">
+              <ion-row class="bar-track">
+                <ion-col class="bar-fill" [style.width.%]="bar.percent"></ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="auto" class="bar-percent-col">
+              <ion-text class="bar-percent">{{ bar.percent }}%</ion-text>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+</ion-content>
+
+<!-- Footer propre à cette page : actions post-collecte (pas de tab bar) -->
+<ion-footer class="ion-no-border termine-footer">
+  <ion-row class="ion-padding-horizontal ion-padding-top">
+    <ion-col>
+      <!-- "Laisser un avis" → soumet note + retour marché -->
+      <ion-button expand="block" shape="round" color="success" class="avis-btn" (click)="laisserAvis()">
+        <ion-label class="avis-label">Laisser un avis</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-padding-bottom">
+    <ion-col size="auto">
+      <!-- "Retour à l'accueil" → marché -->
+      <ion-button fill="clear" class="retour-btn" (click)="retourAccueil()">
+        <ion-label class="retour-label">Retour à l'accueil</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

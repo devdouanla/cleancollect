@@ -1,0 +1,316 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #ffffff;
+  --card-radius: 18px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.paiement-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+// =============================================
+// Page
+// =============================================
+.paiement-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Titre
+// =============================================
+.title-block {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.6px;
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+// =============================================
+// Carte article
+// =============================================
+.article-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  margin: 0 0 8px;
+  border: 1px solid #F0F0F0;
+
+  .article-card-content {
+    padding: 16px;
+  }
+}
+
+.article-top-row {
+  margin-bottom: 14px;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+.article-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.article-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding-left: 4px !important;
+}
+
+.article-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.weight-badge {
+  --background: var(--green-light);
+  --color: #2E7D32;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 5px 12px;
+  letter-spacing: 0.5px;
+}
+
+// Séparateur
+.separator-row {
+  ion-col {
+    height: 1px;
+    background: #F0F0F0;
+    margin: 0 0 14px;
+    padding: 0 !important;
+  }
+}
+
+// Prix total
+.price-total-row {
+  flex-wrap: nowrap;
+}
+
+.price-total-label {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.price-total-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  letter-spacing: -0.5px;
+}
+
+// =============================================
+// Section Mode de paiement
+// =============================================
+.section-label-row {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+// =============================================
+// Options de paiement
+// =============================================
+.payment-option-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  margin: 0 0 12px;
+  border: 1.5px solid #F0F0F0;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+
+  &.payment-option-selected {
+    border-color: var(--green-primary);
+    background: var(--green-light);
+  }
+
+  .payment-option-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 14px;
+  }
+}
+
+// Logo placeholder (carré coloré avec texte)
+.payment-logo-wrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  background: #1A1A2E;
+  flex-shrink: 0;
+}
+
+.orange-wrap {
+  background: #FF6600;
+}
+
+.logo-text {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #FFD700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.orange-text {
+  color: #ffffff;
+  font-size: 0.6rem;
+}
+
+.payment-text-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 !important;
+}
+
+.payment-name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.payment-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.payment-radio {
+  --color: #CCCCCC;
+  --color-checked: var(--green-primary);
+  flex-shrink: 0;
+}
+
+// =============================================
+// Badge sécurité
+// =============================================
+.security-row {
+  margin-top: 12px;
+  gap: 6px;
+}
+
+.security-icon {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.security-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.bottom-spacer {
+  height: 16px;
+}
+
+// =============================================
+// Footer
+// =============================================
+.paiement-footer {
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.total-footer-row {
+  padding-top: 14px !important;
+  padding-bottom: 10px !important;
+}
+
+.footer-total-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.footer-total-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.4px;
+}
+
+.pay-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 24px rgba(46, 204, 113, 0.4);
+  height: 56px;
+}
+
+.pay-icon {
+  font-size: 1.3rem;
+  margin-right: 6px;
+}
+
+.pay-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}

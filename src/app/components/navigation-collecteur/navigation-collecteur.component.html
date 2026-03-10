@@ -1,0 +1,106 @@
+<ion-header class="ion-no-border nav-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/missions-disponibles" class="back-btn" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">
+      <div class="title-block">
+        <span class="title-main">Navigation en cours</span>
+        <span class="title-sub">Arrivée estimée : {{ eta }}</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="nav-page">
+
+  <!-- ===== ZONE MAP ===== -->
+  <div class="map-zone">
+
+    <!-- Fond map simulé -->
+    <div class="map-bg"></div>
+
+    <!-- Barre de recherche flottante -->
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <ion-icon name="search-outline" class="search-icon"></ion-icon>
+        <ion-input
+          placeholder="Rechercher un lieu"
+          class="search-input"
+          readonly="true">
+        </ion-input>
+      </div>
+    </div>
+
+    <!-- Contrôles zoom (droite) -->
+    <div class="map-controls">
+      <button class="zoom-btn zoom-top" (click)="zoomIn()">
+        <ion-icon name="add-outline" class="zoom-icon"></ion-icon>
+      </button>
+      <div class="zoom-divider"></div>
+      <button class="zoom-btn zoom-bottom" (click)="zoomOut()">
+        <ion-icon name="remove-outline" class="zoom-icon"></ion-icon>
+      </button>
+    </div>
+
+    <!-- Bouton boussole -->
+    <button class="compass-btn" (click)="centerMap()">
+      <ion-icon name="compass-outline" class="compass-icon"></ion-icon>
+    </button>
+
+    <!-- Pin destination (rouge) -->
+    <div class="dest-pin">
+      <ion-icon name="location" class="dest-pin-icon"></ion-icon>
+    </div>
+
+    <!-- Point position collecteur (vert avec flèche) -->
+    <div class="collector-dot">
+      <ion-icon name="navigate" class="collector-icon"></ion-icon>
+    </div>
+
+  </div>
+
+  <!-- ===== BOTTOM SHEET : Infos client ===== -->
+  <div class="bottom-sheet">
+
+    <!-- Nom + statut -->
+    <ion-row class="client-header-row">
+      <ion-col>
+        <ion-text class="client-name">{{ client.name }}</ion-text>
+        <ion-row class="ion-align-items-center status-row">
+          <span class="status-dot"></span>
+          <ion-text class="status-text">{{ client.status }}</ion-text>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <!-- Boutons Appeler / Message -->
+    <ion-row class="action-btns-row">
+      <ion-col size="auto">
+        <ion-button fill="outline" shape="round" class="action-btn" (click)="appeler()">
+          <ion-icon name="call-outline" slot="start" class="action-icon"></ion-icon>
+          <ion-label class="action-label">Appeler</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button fill="outline" shape="round" class="action-btn" (click)="envoyer()">
+          <ion-icon name="chatbox-outline" slot="start" class="action-icon"></ion-icon>
+          <ion-label class="action-label">Message</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+  <!-- ===== BOUTON "JE SUIS ARRIVÉ" ===== -->
+  <div class="arrive-wrapper">
+    <ion-button
+      expand="block"
+      shape="round"
+      class="arrive-btn"
+      (click)="jesuisArrive()">
+      JE SUIS ARRIVÉ
+    </ion-button>
+  </div>
+
+</ion-content>

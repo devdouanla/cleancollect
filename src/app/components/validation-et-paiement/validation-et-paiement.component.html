@@ -1,0 +1,145 @@
+<ion-header class="ion-no-border val-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/missions-disponibles" text="" class="back-btn"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Valider la collecte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="val-page">
+
+  <!-- ===== RÉSUMÉ DE LA COLLECTE ===== -->
+  <div class="section-block">
+    <ion-text class="section-label">RÉSUMÉ DE LA COLLECTE</ion-text>
+
+    <ion-card class="resume-card">
+      <ion-card-content class="resume-card-content">
+
+        <!-- Client -->
+        <ion-row class="ion-align-items-center client-row">
+          <ion-col size="auto">
+            <div class="client-avatar">
+              <ion-img src="https://picsum.photos/id/1005/200/200" class="avatar-img"></ion-img>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-text class="client-name">{{ collecte.clientName }}</ion-text>
+            <ion-text class="client-badge">{{ collecte.clientBadge }}</ion-text>
+          </ion-col>
+        </ion-row>
+
+        <!-- Divider -->
+        <div class="inner-divider"></div>
+
+        <!-- Type + Volume -->
+        <ion-row class="details-row">
+          <ion-col size="6" class="ion-no-padding">
+            <div class="detail-pill">
+              <div class="detail-icon-box">
+                <ion-icon name="refresh-circle-outline" class="detail-icon"></ion-icon>
+              </div>
+              <div class="detail-texts">
+                <ion-text class="detail-label">Type</ion-text>
+                <ion-text class="detail-value">{{ collecte.type }}</ion-text>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="6" class="ion-no-padding">
+            <div class="detail-pill">
+              <div class="detail-icon-box">
+                <ion-icon name="bag-outline" class="detail-icon"></ion-icon>
+              </div>
+              <div class="detail-texts">
+                <ion-text class="detail-label">Volume</ion-text>
+                <ion-text class="detail-value">{{ collecte.volume }}</ion-text>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- ===== PREUVE DE COLLECTE ===== -->
+  <div class="section-block">
+    <ion-text class="section-label">PREUVE DE COLLECTE</ion-text>
+
+    <div class="photo-zone">
+      <!-- Aperçu si photo prise -->
+      <ng-container *ngIf="photoUrl; else noPhoto">
+        <div class="photo-preview-wrapper">
+          <ion-img [src]="photoUrl" class="photo-preview"></ion-img>
+          <ion-button fill="clear" class="retake-btn" (click)="prendrePhoto()">
+            <ion-icon name="camera-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </div>
+      </ng-container>
+
+      <!-- Placeholder si pas de photo -->
+      <ng-template #noPhoto>
+        <div class="photo-placeholder">
+          <div class="camera-icon-circle">
+            <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
+          </div>
+          <ion-text class="photo-hint">
+            Veuillez prendre une photo des déchets pour valider la qualité.
+          </ion-text>
+          <ion-button shape="round" class="photo-btn" (click)="prendrePhoto()">
+            <ion-icon name="camera-outline" slot="start"></ion-icon>
+            Prendre une photo
+          </ion-button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- ===== PAIEMENT REÇU ===== -->
+  <div class="section-block payment-section">
+    <ion-card class="payment-card">
+      <ion-card-content class="payment-card-content">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="auto">
+            <div class="payment-icon-box">
+              <ion-icon name="checkmark-circle" class="payment-icon"></ion-icon>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-text class="payment-title">{{ paiement.label }}</ion-text>
+            <ion-text class="payment-amount">{{ paiement.amount | number:'1.0-0' }} FCFA reçu via {{ paiement.method }}</ion-text>
+            <ion-text class="payment-id">ID: {{ paiement.transactionId }}</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="bottom-spacer"></div>
+
+</ion-content>
+
+<!-- ===== FOOTER : boutons d'action ===== -->
+<ion-footer class="ion-no-border val-footer">
+  <div class="footer-btns">
+
+    <ion-button
+      expand="block"
+      shape="round"
+      class="btn-confirmer"
+      (click)="confirmerRecuperation()">
+      Confirmer la récupération
+      <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      shape="round"
+      class="btn-terminer"
+      (click)="terminerMission()">
+      Terminer la mission
+      <ion-icon name="checkmark-done-circle-outline" slot="end"></ion-icon>
+    </ion-button>
+
+  </div>
+</ion-footer>

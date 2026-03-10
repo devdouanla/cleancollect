@@ -1,0 +1,106 @@
+<ion-header class="ion-no-border market-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="header-title">Marché du recyclage</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="profile-btn">
+        <ion-icon name="person-circle" slot="icon-only" class="profile-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="market-page">
+
+  <ion-searchbar
+    placeholder="Plastiques, cartons, fer..."
+    class="custom-searchbar"
+    [debounce]="400">
+  </ion-searchbar>
+
+  <div class="categories-scroll-wrapper">
+    <ion-chip [color]="selectedCategory === 'tous' ? 'success' : 'light'" class="category-chip" (click)="selectCategory('tous')">
+      <ion-icon name="grid" slot="start"></ion-icon><ion-label>Tous</ion-label>
+    </ion-chip>
+    <ion-chip [color]="selectedCategory === 'plastique' ? 'success' : 'light'" class="category-chip" (click)="selectCategory('plastique')">
+      <ion-icon name="flask-outline" slot="start"></ion-icon><ion-label>Plastique</ion-label>
+    </ion-chip>
+    <ion-chip [color]="selectedCategory === 'carton' ? 'success' : 'light'" class="category-chip" (click)="selectCategory('carton')">
+      <ion-icon name="cube-outline" slot="start"></ion-icon><ion-label>Carton</ion-label>
+    </ion-chip>
+    <ion-chip [color]="selectedCategory === 'metal' ? 'success' : 'light'" class="category-chip" (click)="selectCategory('metal')">
+      <ion-icon name="hammer-outline" slot="start"></ion-icon><ion-label>Métal</ion-label>
+    </ion-chip>
+    <ion-chip [color]="selectedCategory === 'verre' ? 'success' : 'light'" class="category-chip" (click)="selectCategory('verre')">
+      <ion-icon name="wine-outline" slot="start"></ion-icon><ion-label>Verre</ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-row class="annonces-header ion-align-items-center ion-justify-content-between ion-padding-horizontal">
+    <ion-col size="auto"><ion-text class="section-title">Annonces récentes</ion-text></ion-col>
+    <ion-col size="auto"><ion-text color="success" class="voir-tout">Voir tout</ion-text></ion-col>
+  </ion-row>
+
+  <ion-list lines="none" class="announcements-list">
+    <!--
+      Clic sur la carte entière → détails de l'annonce
+      stopPropagation sur "Contacter" pour éviter le double déclenchement
+    -->
+    <ion-card *ngFor="let item of marketItems" class="announce-card" (click)="voirDetail(item)">
+      <ion-row class="ion-no-padding card-inner">
+        <ion-col size="4" class="image-col ion-no-padding">
+          <ion-img [src]="item.imageUrl" class="card-image"></ion-img>
+        </ion-col>
+        <ion-col size="8" class="info-col">
+          <ion-row class="ion-align-items-start ion-justify-content-between title-row">
+            <ion-col><ion-text class="item-title">{{ item.title }}</ion-text></ion-col>
+            <ion-col size="auto">
+              <ion-badge class="category-badge" [ngClass]="'badge-' + item.category.toLowerCase()">{{ item.category }}</ion-badge>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-align-items-center seller-row">
+            <ion-icon name="person-outline" class="meta-icon"></ion-icon>
+            <ion-text class="meta-text">{{ item.seller }}</ion-text>
+          </ion-row>
+          <ion-row class="ion-align-items-center details-row">
+            <ion-col size="auto" class="detail-item ion-no-padding">
+              <ion-icon name="sync-circle-outline" class="meta-icon green-icon"></ion-icon>
+              <ion-text class="meta-text">{{ item.weight }}</ion-text>
+            </ion-col>
+            <ion-col size="auto" class="detail-item ion-no-padding">
+              <ion-icon name="location-outline" class="meta-icon green-icon"></ion-icon>
+              <ion-text class="meta-text">{{ item.location }}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-align-items-center ion-justify-content-between price-row">
+            <ion-col class="ion-no-padding">
+              <ion-text class="price-text">{{ item.price | number:'1.0-0' }} FCFA</ion-text>
+            </ion-col>
+            <ion-col size="auto" class="ion-no-padding">
+              <!-- stopPropagation pour ne pas déclencher voirDetail() en même temps -->
+              <ion-button fill="solid" size="small" class="contact-btn" color="dark"
+                (click)="$event.stopPropagation(); voirDetail(item)">
+                Contacter
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+
+  <div class="bottom-spacer"></div>
+
+  <!-- FAB "Publier une annonce" → /creer_une_annonce_recyclage -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="publish-fab">
+    <ion-fab-button class="publish-fab-btn" color="success" (click)="publierAnnonce()">
+      <ion-row class="ion-align-items-center fab-content">
+        <ion-icon name="add-outline" class="fab-icon"></ion-icon>
+        <ion-label class="fab-label">+ Publier une annonce</ion-label>
+      </ion-row>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

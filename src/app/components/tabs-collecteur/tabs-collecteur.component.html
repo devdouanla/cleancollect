@@ -1,0 +1,38 @@
+<ion-tabs>
+
+  <ion-router-outlet></ion-router-outlet>
+
+  <!-- Tab bar COLLECTEUR : Missions | Carte | Historique | Profil -->
+  <ion-tab-bar slot="bottom" class="bottom-tab-bar" *ngIf="isVisible">
+
+    <ion-tab-button class="tab-btn"
+      [class.tab-active]="activeTab === 'missions'"
+      (click)="navigate('missions')">
+      <ion-icon name="document-text-outline"></ion-icon>
+      <ion-label>Missions</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="tab-btn"
+      [class.tab-active]="activeTab === 'carte'"
+      (click)="navigate('carte')">
+      <ion-icon name="map-outline"></ion-icon>
+      <ion-label>Carte</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="tab-btn"
+      [class.tab-active]="activeTab === 'historique'"
+      (click)="navigate('historique')">
+      <ion-icon name="time-outline"></ion-icon>
+      <ion-label>Historique</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="tab-btn"
+      [class.tab-active]="activeTab === 'profil'"
+      (click)="navigate('profil')">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

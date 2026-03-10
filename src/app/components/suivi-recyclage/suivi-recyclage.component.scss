@@ -1,0 +1,350 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --orange-pending: #F39C12;
+  --orange-light: #FFF3E0;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #F4F6F8;
+  --card-radius: 18px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.06);
+}
+
+// =============================================
+// Header
+// =============================================
+.suivi-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+// =============================================
+// Page
+// =============================================
+.suivi-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Carte article
+// =============================================
+.article-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  margin: 16px 0 0;
+  border: none;
+
+  .article-card-content {
+    padding: 14px 16px;
+  }
+}
+
+.article-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.article-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.article-seller {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.article-price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  display: block;
+  letter-spacing: -0.3px;
+}
+
+// =============================================
+// Section title
+// =============================================
+.section-label-row {
+  margin-top: 22px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+// =============================================
+// Timeline
+// =============================================
+.timeline-container {
+  padding-left: 4px;
+}
+
+.timeline-step {
+  padding: 0 !important;
+}
+
+.step-row {
+  gap: 14px;
+}
+
+.step-icon-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 !important;
+  min-width: 40px;
+}
+
+// Cercle de l'étape
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.step-done {
+    background: var(--green-primary);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+  }
+
+  &.step-pending {
+    background: #ffffff;
+    border: 2.5px solid var(--orange-pending);
+  }
+}
+
+.step-check-icon {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.step-pending-icon {
+  font-size: 1.2rem;
+  color: var(--orange-pending);
+}
+
+// Ligne de connexion entre étapes
+.step-line {
+  width: 40px;
+  height: 32px;
+  align-items: center;
+
+  .line-segment {
+    width: 3px;
+    height: 32px;
+    border-radius: 2px;
+    padding: 0 !important;
+    margin: 0 auto;
+
+  }
+
+  &.step-line-done .line-segment {
+    background: var(--green-primary);
+  }
+
+  &.step-line-pending .line-segment {
+    background: #E0E0E0;
+  }
+}
+
+// Contenu de l'étape
+.step-content {
+  padding-top: 6px !important;
+  padding-bottom: 20px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.step-status {
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+
+  &.step-status-done {
+    color: var(--green-primary);
+  }
+
+  &.step-status-pending {
+    color: var(--orange-pending);
+  }
+}
+
+// =============================================
+// Carte lieu + Map
+// =============================================
+.map-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+
+  .map-card-content {
+    padding: 14px 16px 0;
+  }
+}
+
+.lieu-header-row {
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.lieu-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.lieu-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.lieu-address {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.map-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  display: block;
+}
+
+// =============================================
+// Détails récapitulatifs
+// =============================================
+.recap-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.recap-row {
+  border-bottom: 1px solid #F0F0F0;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+
+  &.last-recap {
+    border-bottom: none;
+  }
+}
+
+.recap-key {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.recap-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: right;
+}
+
+.bottom-spacer {
+  height: 16px;
+}
+
+// =============================================
+// Footer
+// =============================================
+.suivi-footer {
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.confirm-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 24px rgba(46, 204, 113, 0.4);
+  height: 56px;
+  margin-bottom: 4px;
+}
+
+.confirm-icon {
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+.confirm-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+// =============================================
+// Tab Bar
+// =============================================
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  height: 62px;
+  box-shadow: none;
+}
+
+.tab-btn {
+  --color: #AAAAAA;
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}

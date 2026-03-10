@@ -1,0 +1,31 @@
+:host {
+  --green-primary: #2ECC71;
+  --green-shadow: rgba(46, 204, 113, 0.45);
+  --tab-inactive: #AAAAAA;
+}
+
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+  height: 62px;
+}
+
+.tab-btn {
+  --color: var(--tab-inactive);
+  --color-selected: var(--green-primary);
+  flex: 1;
+
+  ion-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+    text-transform: none;
+  }
+
+  ion-icon { font-size: 1.35rem; }
+
+  &.tab-active { --color: var(--green-primary); }
+}

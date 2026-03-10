@@ -1,0 +1,336 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-dark: #1B5E20;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #6C757D;
+  --bg-page: #F4F6F8;
+  --card-radius: 16px;
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.market-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+.profile-btn {
+  --color: var(--green-primary);
+}
+
+.profile-icon {
+  font-size: 2rem;
+  color: var(--green-primary);
+}
+
+// =============================================
+// Page background
+// =============================================
+.market-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Searchbar
+// =============================================
+.custom-searchbar {
+  --background: #ffffff;
+  --border-radius: 14px;
+  --box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --color: var(--text-dark);
+  --placeholder-color: var(--text-muted);
+  --icon-color: var(--text-muted);
+  --clear-button-color: var(--text-muted);
+  padding: 0 16px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+// =============================================
+// Catégories
+// =============================================
+.categories-scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 16px 14px;
+  gap: 8px;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.category-chip {
+  flex-shrink: 0;
+  font-weight: 600;
+  font-size: 0.88rem;
+  height: 38px;
+  border-radius: 20px;
+  margin: 0;
+  border: 1.5px solid #E0E0E0;
+
+  ion-icon {
+    font-size: 1.1rem;
+  }
+
+  &[color="success"] {
+    --background: var(--green-primary);
+    --color: #ffffff;
+    border-color: var(--green-primary);
+  }
+
+  &[color="light"] {
+    --background: #ffffff;
+    --color: var(--text-dark);
+    border-color: #E0E0E0;
+  }
+}
+
+// =============================================
+// Section header "Annonces récentes"
+// =============================================
+.annonces-header {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+.voir-tout {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green-primary) !important;
+  cursor: pointer;
+}
+
+// =============================================
+// Liste des annonces
+// =============================================
+.announcements-list {
+  background: transparent;
+  padding: 0 0 8px;
+}
+
+.announce-card {
+  margin: 0 16px 14px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  overflow: hidden;
+  border: none;
+
+  .card-inner {
+    min-height: 120px;
+  }
+}
+
+// Image
+.image-col {
+  padding: 10px 0 10px 10px !important;
+}
+
+.card-image {
+  border-radius: 12px;
+  height: 115px;
+  width: 100%;
+  object-fit: cover;
+}
+
+// Infos
+.info-col {
+  padding: 10px 12px 10px 10px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-row {
+  margin-bottom: 2px;
+}
+
+.item-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  display: block;
+}
+
+// Badge catégorie
+.category-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+
+  &.badge-plastique {
+    --background: #E8F5E9;
+    --color: #2E7D32;
+  }
+  &.badge-carton {
+    --background: #FFF3E0;
+    --color: #E65100;
+  }
+  &.badge-métal {
+    --background: #E3F2FD;
+    --color: #1565C0;
+  }
+  &.badge-verre {
+    --background: #F3E5F5;
+    --color: #7B1FA2;
+  }
+}
+
+// Seller
+.seller-row {
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+// Details (poids + lieu)
+.details-row {
+  gap: 10px;
+  margin-bottom: 4px;
+  flex-wrap: nowrap;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-right: 8px;
+}
+
+.meta-icon {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+
+  &.green-icon {
+    color: var(--green-primary);
+  }
+}
+
+.meta-text {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+// Prix + bouton
+.price-row {
+  margin-top: 2px;
+}
+
+.price-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  letter-spacing: -0.5px;
+}
+
+.contact-btn {
+  --background: #1A1A2E;
+  --background-activated: #2d2d4e;
+  --color: #ffffff;
+  --border-radius: 10px;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  height: 34px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+// =============================================
+// FAB - Publier une annonce
+// =============================================
+.bottom-spacer {
+  height: 90px;
+}
+
+.publish-fab {
+  margin-bottom: 8px;
+}
+
+.publish-fab-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --color: #ffffff;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 28px rgba(46, 204, 113, 0.45);
+  width: 230px;
+  height: 56px;
+}
+
+.fab-content {
+  flex-wrap: nowrap;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.fab-icon {
+  font-size: 1.4rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.fab-label {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.1px;
+}
+
+// =============================================
+// Tab Bar
+// =============================================
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  height: 62px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+  --color: #AAAAAA;
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}
