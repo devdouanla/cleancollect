@@ -1,0 +1,113 @@
+<ion-header class="ion-no-border confirm-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/prendre_rendez_vous" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="confirm-page">
+
+  <!-- Icône succès -->
+  <ion-row class="ion-justify-content-center success-icon-row">
+    <ion-col size="auto">
+      <ion-row class="icon-outer-circle ion-justify-content-center ion-align-items-center">
+        <ion-col size="auto">
+          <ion-row class="icon-inner-circle ion-justify-content-center ion-align-items-center">
+            <ion-icon name="checkmark-outline" class="check-icon"></ion-icon>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ion-padding-horizontal">
+    <ion-col>
+      <ion-text class="confirm-title">Le rendez-vous a été confirmé</ion-text>
+      <ion-text class="confirm-subtitle">Votre rendez-vous pour la collecte de déchets recyclables a été enregistré avec succès.</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col><ion-text class="section-title">Détails du rendez-vous</ion-text></ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="details-card">
+        <ion-card-content class="details-card-content">
+          <ion-row class="ion-align-items-center ion-justify-content-between participants-row">
+            <ion-col>
+              <ion-text class="participant-role">ACHETEUR</ion-text>
+              <ion-text class="participant-name">{{ rdv.buyer }}</ion-text>
+              <ion-text class="participant-role" style="margin-top: 12px;">VENDEUR</ion-text>
+              <ion-text class="participant-name">{{ rdv.seller }}</ion-text>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-row class="recycle-icon-box ion-justify-content-center ion-align-items-center">
+                <ion-icon name="refresh-circle-outline" class="recycle-icon" color="success"></ion-icon>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="separator-row"><ion-col><ion-text class="separator-line"></ion-text></ion-col></ion-row>
+          <ion-row class="ion-align-items-start location-date-row">
+            <ion-col class="info-block">
+              <ion-row class="ion-align-items-center">
+                <ion-icon name="location" class="info-icon" color="success"></ion-icon>
+                <ion-col>
+                  <ion-text class="info-label">Lieu</ion-text>
+                  <ion-text class="info-value">{{ rdv.location }}</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col class="info-block">
+              <ion-row class="ion-align-items-center">
+                <ion-icon name="calendar-outline" class="info-icon" color="success"></ion-icon>
+                <ion-col>
+                  <ion-text class="info-label">Date &amp; Heure</ion-text>
+                  <ion-text class="info-value">{{ rdv.dateHeure }}</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="map-card">
+        <ion-card-content class="map-card-content">
+          <ion-row class="ion-justify-content-center ion-align-items-center map-inner">
+            <ion-icon name="map-outline" class="map-placeholder-icon" color="success"></ion-icon>
+          </ion-row>
+          <ion-row class="ion-padding-start">
+            <ion-col><ion-text class="map-zone-label">Zone: {{ rdv.zone }}</ion-text></ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- "Procéder au paiement" → /paiement_transaction -->
+  <ion-row class="ion-padding-horizontal action-row">
+    <ion-col>
+      <ion-button expand="block" shape="round" color="success" class="payment-btn" (click)="procederPaiement()">
+        <ion-label class="payment-label">Procéder au paiement</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <!-- "Annuler" → /marche-du-recyclage -->
+  <ion-row class="ion-padding-horizontal cancel-row">
+    <ion-col>
+      <ion-button expand="block" shape="round" fill="outline" color="medium" class="cancel-btn" (click)="annulerRdv()">
+        <ion-label class="cancel-label">Annuler le rendez-vous</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+</ion-content>

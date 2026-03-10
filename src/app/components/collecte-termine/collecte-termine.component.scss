@@ -1,0 +1,252 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #ffffff;
+  --card-radius: 18px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.06);
+}
+
+// =============================================
+// Header
+// =============================================
+.termine-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.close-btn {
+  --border-color: #E0E0E0;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 40px;
+  height: 40px;
+  margin-left: 4px;
+
+  ion-icon {
+    font-size: 1.3rem;
+  }
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+// =============================================
+// Page
+// =============================================
+.termine-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Icône succès (double cercle)
+// =============================================
+.success-icon-row {
+  margin-top: 40px;
+  margin-bottom: 28px;
+}
+
+.icon-outer-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--green-light);
+}
+
+.icon-inner-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  box-shadow: 0 8px 24px rgba(46, 204, 113, 0.45);
+}
+
+.check-icon {
+  font-size: 2.2rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+// =============================================
+// Texte succès
+// =============================================
+.text-block {
+  margin-bottom: 28px;
+}
+
+.success-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+  text-align: center;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.success-subtitle {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  text-align: center;
+  display: block;
+  line-height: 1.55;
+}
+
+// Séparateur
+.full-separator {
+  ion-col {
+    height: 1px;
+    background: #F0F0F0;
+    padding: 0 !important;
+    margin-bottom: 20px;
+  }
+}
+
+// =============================================
+// Carte notation
+// =============================================
+.rating-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #F8F9FA;
+  margin: 0;
+  border: none;
+
+  .rating-card-content {
+    padding: 20px 16px;
+  }
+}
+
+.rating-question {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  display: block;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+// Étoiles
+.stars-row {
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.star-icon {
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  &.star-filled {
+    color: var(--green-primary);
+  }
+
+  &.star-empty {
+    color: #CCCCCC;
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+// Barres de distribution
+.rating-bar-row {
+  margin-bottom: 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.bar-label-col {
+  min-width: 16px;
+  padding: 0 !important;
+}
+
+.bar-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.bar-track-col {
+  padding: 0 !important;
+}
+
+.bar-track {
+  height: 8px;
+  background: #E8E8E8;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bar-fill {
+  height: 8px;
+  background: var(--green-primary);
+  border-radius: 4px;
+  padding: 0 !important;
+  transition: width 0.4s ease;
+}
+
+.bar-percent-col {
+  min-width: 36px;
+  text-align: right;
+  padding: 0 !important;
+}
+
+.bar-percent {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.bottom-spacer {
+  height: 16px;
+}
+
+// =============================================
+// Footer
+// =============================================
+.termine-footer {
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.avis-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 24px rgba(46, 204, 113, 0.4);
+  height: 56px;
+}
+
+.avis-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+.retour-btn {
+  --color: var(--text-dark);
+}
+
+.retour-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}

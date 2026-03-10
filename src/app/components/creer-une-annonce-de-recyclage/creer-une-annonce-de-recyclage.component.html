@@ -1,0 +1,112 @@
+<ion-header class="ion-no-border annonce-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/marche-du-recyclage" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Créer une Annonce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="annonce-page">
+
+  <!-- Toggle Je vends / Je recherche -->
+  <ion-row class="toggle-row ion-justify-content-center">
+    <ion-col size="auto">
+      <ion-segment [(ngModel)]="annonceType" class="type-segment">
+        <ion-segment-button value="vends" class="segment-btn"><ion-label>Je vends</ion-label></ion-segment-button>
+        <ion-segment-button value="recherche" class="segment-btn"><ion-label>Je recherche</ion-label></ion-segment-button>
+      </ion-segment>
+    </ion-col>
+  </ion-row>
+
+  <!-- Photos -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col><ion-text class="section-label">Photos de l'annonce</ion-text></ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="photo-upload-card" (click)="addPhoto()">
+        <ion-card-content class="photo-upload-content">
+          <ion-icon name="camera-outline" class="camera-icon"></ion-icon>
+          <ion-text class="upload-title">Ajouter une image</ion-text>
+          <ion-text class="upload-subtitle">Maximum 5 photos (PNG, JPG)</ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- Type de matériau -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col><ion-text class="section-label">Type de matériau</ion-text></ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-select [(ngModel)]="selectedMaterial" interface="action-sheet" placeholder="Plastique (PET, PEHD)" class="material-select" fill="outline" shape="round">
+        <ion-select-option value="plastique">Plastique (PET, PEHD)</ion-select-option>
+        <ion-select-option value="carton">Carton</ion-select-option>
+        <ion-select-option value="metal">Métal / Ferraille</ion-select-option>
+        <ion-select-option value="verre">Verre</ion-select-option>
+        <ion-select-option value="papier">Papier</ion-select-option>
+        <ion-select-option value="electronique">Déchets électroniques</ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+
+  <!-- Quantité + Prix -->
+  <ion-row class="ion-padding-horizontal qty-price-row">
+    <ion-col>
+      <ion-text class="section-label">Quantité (kg)</ion-text>
+      <ion-input [(ngModel)]="quantity" type="number" placeholder="Ex: 50" class="custom-input" fill="outline" shape="round"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-text class="section-label">Prix (FCFA)</ion-text>
+      <ion-input [(ngModel)]="price" type="number" placeholder="Ex: 5000" class="custom-input" fill="outline" shape="round"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <!-- Description -->
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col><ion-text class="section-label">Description détaillée</ion-text></ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-textarea [(ngModel)]="description" placeholder="Décrivez l'état et la provenance des matériaux..." class="custom-textarea" fill="outline" shape="round" [autoGrow]="false" rows="4"></ion-textarea>
+    </ion-col>
+  </ion-row>
+
+  <!-- Localisation -->
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="location-card">
+        <ion-card-content class="location-content">
+          <ion-button fill="solid" shape="round" class="location-icon-btn" color="success">
+            <ion-icon name="locate-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-row class="location-text-col">
+            <ion-col>
+              <ion-text class="location-label">Localisation actuelle (GPS)</ion-text>
+              <ion-text class="location-value">{{ location }}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-button fill="clear" class="modifier-btn" color="success">
+            <ion-label>MODIFIER</ion-label>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- Bouton Publier → /marche-du-recyclage -->
+  <ion-row class="ion-padding-horizontal publish-row">
+    <ion-col>
+      <ion-button expand="block" shape="round" color="success" class="publish-btn" (click)="publishAnnonce()">
+        <ion-label class="publish-label">Publier l'annonce</ion-label>
+        <ion-icon name="arrow-forward-outline" slot="end" class="publish-arrow"></ion-icon>
+      </ion-button>
+      <ion-text class="terms-text">En publiant cette annonce, vous acceptez nos conditions d'utilisation</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+
+</ion-content>

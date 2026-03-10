@@ -1,0 +1,325 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-dark: #1B5E20;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #F4F6F8;
+  --card-radius: 16px;
+  --input-radius: 14px;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+// =============================================
+// Header
+// =============================================
+.annonce-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+// =============================================
+// Page
+// =============================================
+.annonce-page {
+  --background: #ffffff;
+}
+
+// =============================================
+// Toggle segment
+// =============================================
+.toggle-row {
+  padding: 20px 16px 8px;
+}
+
+.type-segment {
+  --background: #F0F0F0;
+  border-radius: 32px;
+  padding: 4px;
+  width: 280px;
+
+  ion-segment-button {
+    --background: transparent;
+    --background-checked: #ffffff;
+    --color: var(--text-muted);
+    --color-checked: var(--green-primary);
+    --indicator-color: transparent;
+    --border-radius: 28px;
+    min-width: 120px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: none;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    box-shadow: none;
+
+    &.segment-button-checked {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// =============================================
+// Section labels
+// =============================================
+.section-label-row {
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.section-label {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
+// =============================================
+// Photo upload
+// =============================================
+.photo-upload-card {
+  border-radius: var(--card-radius);
+  border: 2px dashed #C8D8E0;
+  box-shadow: none;
+  background: #F8FAFC;
+  margin: 0;
+  cursor: pointer;
+
+  .photo-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    gap: 6px;
+  }
+}
+
+.camera-icon {
+  font-size: 2.8rem;
+  color: #B0BEC5;
+  margin-bottom: 4px;
+}
+
+.upload-title {
+  font-size: 0.95rem;
+  color: #78909C;
+  font-weight: 500;
+  display: block;
+}
+
+.upload-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+// =============================================
+// Material select
+// =============================================
+.material-select {
+  --background: #ffffff;
+  --color: var(--text-dark);
+  --placeholder-color: var(--text-muted);
+  --border-color: #E0E0E0;
+  --border-radius: var(--input-radius);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  border-radius: var(--input-radius);
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+// =============================================
+// Quantité + Prix
+// =============================================
+.qty-price-row {
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.custom-input {
+  --background: #ffffff;
+  --color: var(--text-dark);
+  --placeholder-color: var(--text-muted);
+  --border-color: #E0E0E0;
+  --border-radius: var(--input-radius);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+// =============================================
+// Description textarea
+// =============================================
+.custom-textarea {
+  --background: #ffffff;
+  --color: var(--text-dark);
+  --placeholder-color: var(--text-muted);
+  --border-color: #E0E0E0;
+  --border-radius: var(--input-radius);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 14px;
+  font-size: 0.95rem;
+  min-height: 110px;
+}
+
+// =============================================
+// Localisation
+// =============================================
+.location-card {
+  border-radius: var(--card-radius);
+  background: var(--green-light);
+  box-shadow: none;
+  margin: 0;
+  border: none;
+
+  .location-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+}
+
+.location-icon-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+
+  ion-icon {
+    font-size: 1.3rem;
+  }
+}
+
+.location-text-col {
+  flex: 1;
+
+  ion-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+.location-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.location-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.modifier-btn {
+  --color: var(--green-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+// =============================================
+// Bouton Publier
+// =============================================
+.publish-row {
+  margin-top: 20px;
+}
+
+.publish-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --color: #ffffff;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 28px rgba(46, 204, 113, 0.4);
+  height: 58px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.publish-label {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.publish-arrow {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.terms-text {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.bottom-spacer {
+  height: 20px;
+}
+
+// =============================================
+// Tab Bar
+// =============================================
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  height: 62px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+  --color: #AAAAAA;
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}
+
+.tab-add-btn {
+  --background: var(--green-primary);
+  --border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 4px;
+
+  ion-icon {
+    font-size: 1.4rem;
+  }
+}

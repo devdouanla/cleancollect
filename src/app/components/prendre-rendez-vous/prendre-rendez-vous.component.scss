@@ -1,0 +1,316 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #ffffff;
+  --card-radius: 18px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.rdv-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+// =============================================
+// Page
+// =============================================
+.rdv-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Section titles
+// =============================================
+.section-label-row {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.4px;
+  display: block;
+}
+
+// =============================================
+// Calendrier
+// =============================================
+.calendar-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #F8F9FA;
+  margin: 0;
+  border: none;
+
+  .calendar-content {
+    padding: 16px 8px;
+  }
+}
+
+// Navigation mois
+.month-nav-row {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.nav-btn {
+  --padding-start: 4px;
+  --padding-end: 4px;
+  height: 32px;
+
+  ion-icon {
+    font-size: 1.2rem;
+  }
+}
+
+.month-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  display: block;
+}
+
+// Jours de la semaine
+.weekdays-row {
+  margin-bottom: 6px;
+}
+
+.weekday-col {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.weekday-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+// Grille des jours
+.week-row {
+  margin-bottom: 2px;
+}
+
+.day-col {
+  text-align: center;
+  padding: 4px 2px !important;
+  cursor: pointer;
+}
+
+.day-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &.day-other-month {
+    color: #CCCCCC;
+    cursor: default;
+  }
+
+  &.day-selected {
+    background: var(--green-primary);
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+  }
+
+  &.day-today:not(.day-selected) {
+    border: 2px solid var(--green-primary);
+    color: var(--green-primary);
+  }
+}
+
+// =============================================
+// Sélecteur Heure/Minutes (drum)
+// =============================================
+.time-picker-row {
+  margin-top: 20px;
+  gap: 16px;
+}
+
+.time-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.time-drum-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #F8F9FA;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+
+  .time-drum-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.drum-item {
+  display: block;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 14px 0;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &.drum-selected {
+    background: var(--green-light);
+    color: var(--text-dark);
+    font-size: 1.6rem;
+    font-weight: 800;
+    padding: 16px 0;
+  }
+}
+
+// =============================================
+// Carte / Map
+// =============================================
+.map-card {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin: 0;
+  border: none;
+  position: relative;
+}
+
+.map-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.map-overlay-row {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+}
+
+.location-pill {
+  border-radius: 32px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  margin: 0;
+
+  .location-pill-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+  }
+}
+
+.navigate-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.location-pill-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+// =============================================
+// Précisions lieu
+// =============================================
+.precision-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.precision-textarea {
+  --background: #ffffff;
+  --color: var(--text-dark);
+  --placeholder-color: var(--text-muted);
+  --border-color: #E0E0E0;
+  --border-radius: 14px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 14px;
+  font-size: 0.93rem;
+}
+
+.bottom-spacer {
+  height: 20px;
+}
+
+// =============================================
+// Footer bouton
+// =============================================
+.rdv-footer {
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.send-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 28px rgba(46, 204, 113, 0.4);
+  height: 56px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.send-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+.send-arrow {
+  font-size: 1.3rem;
+}

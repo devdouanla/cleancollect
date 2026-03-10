@@ -1,0 +1,66 @@
+:host {
+  --green-primary: #2ECC71;
+  --green-shadow: rgba(46, 204, 113, 0.45);
+  --tab-inactive: #AAAAAA;
+}
+
+// Ionic gère lui-même le positionnement en bas via slot="bottom"
+// On stylise uniquement les couleurs et le bouton central
+
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+  height: 62px;
+}
+
+.tab-btn {
+  --color: var(--tab-inactive);
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+    text-transform: none;
+  }
+
+  ion-icon {
+    font-size: 1.35rem;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}
+
+// Bouton central Publier
+.publier-btn {
+  --color: var(--tab-inactive);
+
+  &.tab-active .fab-circle {
+    background: #27ae60;
+  }
+}
+
+.fab-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px var(--green-shadow);
+  margin-bottom: 4px;
+  transition: background 0.2s ease, transform 0.15s ease;
+
+  &:active { transform: scale(0.93); }
+
+  .fab-plus-icon {
+    font-size: 1.6rem;
+    color: #ffffff;
+  }
+}

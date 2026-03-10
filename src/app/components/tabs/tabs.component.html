@@ -1,0 +1,49 @@
+<ion-tabs>
+
+  <!-- Toutes les pages enfants s'affichent ici -->
+  <ion-router-outlet></ion-router-outlet>
+
+  <!-- Tab bar Ionic native — toujours en bas automatiquement -->
+  <ion-tab-bar slot="bottom" class="bottom-tab-bar" *ngIf="isVisible">
+
+    <ion-tab-button tab="accueil" class="tab-btn"
+      [class.tab-active]="activeTab === 'accueil'"
+      (click)="navigate('accueil')">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="marche" class="tab-btn"
+      [class.tab-active]="activeTab === 'marche'"
+      (click)="navigate('marche')">
+      <ion-icon name="storefront-outline"></ion-icon>
+      <ion-label>Marché</ion-label>
+    </ion-tab-button>
+
+    <!-- Bouton central Publier -->
+    <ion-tab-button tab="publier" class="tab-btn publier-btn"
+      [class.tab-active]="activeTab === 'publier'"
+      (click)="navigate('publier')">
+      <div class="fab-circle">
+        <ion-icon name="add-outline" class="fab-plus-icon"></ion-icon>
+      </div>
+      <ion-label>Publier</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="historique" class="tab-btn"
+      [class.tab-active]="activeTab === 'historique'"
+      (click)="navigate('historique')">
+      <ion-icon name="time-outline"></ion-icon>
+      <ion-label>Historique</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profil" class="tab-btn"
+      [class.tab-active]="activeTab === 'profil'"
+      (click)="navigate('profil')">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

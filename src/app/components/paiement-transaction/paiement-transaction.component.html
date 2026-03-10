@@ -1,0 +1,115 @@
+<ion-header class="ion-no-border paiement-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/confirmer_rendez_vous" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Paiement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="paiement-page">
+
+  <ion-row class="ion-padding-horizontal title-block">
+    <ion-col>
+      <ion-text class="page-title">Résumé de la transaction</ion-text>
+      <ion-text class="page-subtitle">Vérifiez les détails avant de confirmer</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="article-card">
+        <ion-card-content class="article-card-content">
+          <ion-row class="ion-align-items-center article-top-row">
+            <ion-col size="auto">
+              <ion-img [src]="transaction.imageUrl" class="article-img"></ion-img>
+            </ion-col>
+            <ion-col class="article-info-col">
+              <ion-text class="article-name">{{ transaction.name }}</ion-text>
+              <ion-row class="ion-align-items-center">
+                <ion-badge class="weight-badge">{{ transaction.weight }}</ion-badge>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="separator-row"><ion-col></ion-col></ion-row>
+          <ion-row class="ion-align-items-center ion-justify-content-between price-total-row">
+            <ion-col><ion-text class="price-total-label">Prix total</ion-text></ion-col>
+            <ion-col size="auto"><ion-text class="price-total-value">{{ transaction.price | number:'1.0-0' }} FCFA</ion-text></ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="section-label-row ion-padding-horizontal">
+    <ion-col>
+      <ion-text class="section-title">Mode de paiement</ion-text>
+      <ion-text class="section-subtitle">Sélectionnez votre portefeuille mobile</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-radio-group [value]="selectedPayment">
+    <!-- MTN -->
+    <ion-row class="ion-padding-horizontal">
+      <ion-col>
+        <ion-card class="payment-option-card" [class.payment-option-selected]="selectedPayment === 'mtn'" (click)="selectPayment('mtn')">
+          <ion-card-content class="payment-option-content">
+            <ion-row class="payment-logo-wrap ion-align-items-center ion-justify-content-center">
+              <ion-text class="logo-text mtn-text">mtn</ion-text>
+            </ion-row>
+            <ion-col class="payment-text-col">
+              <ion-text class="payment-name">MTN Mobile Money</ion-text>
+              <ion-text class="payment-desc">Payer avec votre compte MTN</ion-text>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-radio value="mtn" color="success" class="payment-radio"></ion-radio>
+            </ion-col>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- Orange -->
+    <ion-row class="ion-padding-horizontal">
+      <ion-col>
+        <ion-card class="payment-option-card" [class.payment-option-selected]="selectedPayment === 'orange'" (click)="selectPayment('orange')">
+          <ion-card-content class="payment-option-content">
+            <ion-row class="payment-logo-wrap orange-wrap ion-align-items-center ion-justify-content-center">
+              <ion-text class="logo-text orange-text">orange</ion-text>
+            </ion-row>
+            <ion-col class="payment-text-col">
+              <ion-text class="payment-name">Orange Money</ion-text>
+              <ion-text class="payment-desc">Payer avec votre compte Orange</ion-text>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-radio value="orange" color="success" class="payment-radio"></ion-radio>
+            </ion-col>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+
+  <ion-row class="ion-align-items-center ion-padding-horizontal security-row">
+    <ion-col size="auto"><ion-icon name="lock-closed-outline" class="security-icon"></ion-icon></ion-col>
+    <ion-col><ion-text class="security-label">PAIEMENT 100% SÉCURISÉ &amp; CHIFFRÉ</ion-text></ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+</ion-content>
+
+<!-- Footer propre à cette page : total + bouton payer (PAS de tab bar ici) -->
+<ion-footer class="ion-no-border paiement-footer">
+  <ion-row class="ion-align-items-center ion-justify-content-between ion-padding-horizontal total-footer-row">
+    <ion-col><ion-text class="footer-total-label">À payer maintenant</ion-text></ion-col>
+    <ion-col size="auto"><ion-text class="footer-total-value">{{ transaction.price | number:'1.0-0' }} FCFA</ion-text></ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-horizontal ion-padding-bottom">
+    <ion-col>
+      <!-- "Payer maintenant" → /suivi_collecte -->
+      <ion-button expand="block" shape="round" color="success" class="pay-btn" (click)="payerMaintenant()">
+        <ion-icon name="radio-button-on-outline" slot="start" class="pay-icon"></ion-icon>
+        <ion-label class="pay-label">Payer maintenant</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

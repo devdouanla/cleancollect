@@ -1,0 +1,311 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #ffffff;
+  --card-radius: 18px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.07);
+}
+
+// =============================================
+// Header
+// =============================================
+.confirm-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+// =============================================
+// Page
+// =============================================
+.confirm-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Icône succès
+// =============================================
+.success-icon-row {
+  margin-top: 36px;
+  margin-bottom: 24px;
+}
+
+.icon-outer-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--green-light);
+}
+
+.icon-inner-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--green-primary);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.45);
+}
+
+.check-icon {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+// =============================================
+// Textes confirmation
+// =============================================
+.confirm-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-align: center;
+  display: block;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.confirm-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  text-align: center;
+  display: block;
+  line-height: 1.55;
+}
+
+// =============================================
+// Section title
+// =============================================
+.section-label-row {
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+// =============================================
+// Carte détails
+// =============================================
+.details-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  margin: 0 0 14px;
+  border: none;
+
+  .details-card-content {
+    padding: 18px 16px;
+  }
+}
+
+// Participants
+.participants-row {
+  margin-bottom: 16px;
+  flex-wrap: nowrap;
+}
+
+.participant-role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--green-primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.participant-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-top: 2px;
+}
+
+// Icône recyclage
+.recycle-icon-box {
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  background: var(--green-light);
+  flex-shrink: 0;
+}
+
+.recycle-icon {
+  font-size: 2rem;
+}
+
+// Séparateur
+.separator-row {
+  margin-bottom: 16px;
+}
+
+.separator-line {
+  display: block;
+  height: 1px;
+  background: #F0F0F0;
+  width: 100%;
+}
+
+// Lieu + Date
+.location-date-row {
+  gap: 8px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+
+.info-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  line-height: 1.3;
+}
+
+// =============================================
+// Carte Map
+// =============================================
+.map-card {
+  border-radius: var(--card-radius);
+  background: var(--green-light);
+  box-shadow: none;
+  margin: 0 0 8px;
+  border: none;
+
+  .map-card-content {
+    padding: 0 0 12px;
+  }
+}
+
+.map-inner {
+  height: 120px;
+}
+
+.map-placeholder-icon {
+  font-size: 3.5rem;
+  opacity: 0.5;
+}
+
+.map-zone-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding-left: 16px;
+  display: block;
+}
+
+// =============================================
+// Boutons
+// =============================================
+.action-row {
+  margin-top: 20px;
+}
+
+.payment-btn {
+  --background: var(--green-primary);
+  --background-activated: #27ae60;
+  --border-radius: 32px;
+  --box-shadow: 0 8px 24px rgba(46, 204, 113, 0.4);
+  height: 56px;
+}
+
+.payment-label {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+.cancel-row {
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  --border-color: #E0E0E0;
+  --color: var(--text-dark);
+  --border-radius: 32px;
+  --border-width: 1.5px;
+  height: 54px;
+}
+
+.cancel-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.bottom-spacer {
+  height: 16px;
+}
+
+// =============================================
+// Tab Bar
+// =============================================
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  height: 62px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+  --color: #AAAAAA;
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}
+
+.tab-add-btn {
+  --background: var(--green-primary);
+  --border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 4px;
+
+  ion-icon {
+    font-size: 1.4rem;
+  }
+}

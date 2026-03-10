@@ -1,0 +1,150 @@
+.splash-background {
+    --background: #2ecc71;
+    // Ajout de l'effet de feuille en arrière-plan via le masque de l'ion-content
+    --background: radial-gradient(circle at center, #3ded7f 0%, #2ecc71 100%);
+}
+
+.full-height-grid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-row {
+    flex: 1; // Prend tout l'espace disponible pour pousser le reste vers le bas
+}
+
+/* ====================== LOGO & BADGE ====================== */
+.logo-container {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    overflow: visible; // Important pour laisser dépasser le badge
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    .main-logo-img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.leaf-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    --background: #0d2e12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #ffffff;
+
+    ion-icon {
+        font-size: 22px;
+        color: #2ecc71;
+    }
+}
+
+/* ====================== TEXTES ====================== */
+.app-title p {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0d2e12;
+    margin: 25px 0 5px;
+    letter-spacing: -1.5px;
+}
+
+.app-subtitle p {
+    font-size: 1.25rem;
+    color: #0d2e12;
+    margin: 0;
+    line-height: 1.3;
+    opacity: 0.9;
+}
+
+/* ====================== FOOTER (CHARGEMENT) ====================== */
+.bottom-row {
+    margin-bottom: 40px;
+}
+
+.loading-info-item {
+    --background: transparent;
+    --inner-padding-end: 0;
+    --padding-start: 0;
+    min-height: auto;
+
+    .loading-label {
+        font-weight: 700;
+        color: #0d2e12;
+        letter-spacing: 1px;
+        font-size: 0.95rem;
+    }
+
+    .loc-icon {
+        color: #0d2e12;
+        margin: 0;
+    }
+}
+
+.custom-progress {
+    height: 12px;
+    border-radius: 30px;
+    overflow: hidden;
+    --background: rgba(255, 255, 255, 0.25);
+    --progress-background: #ffffff;
+    margin: 15px 0 25px;
+    box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.2),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+}
+
+.custom-progress::part(progress) {
+
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #d4ffe5 40%,
+    #ffffff 80%
+  );
+
+  animation: progressGlow 1.8s infinite linear;
+
+}
+
+@keyframes progressGlow {
+
+  0% {
+    background-position: -200px;
+  }
+
+  100% {
+    background-position: 200px;
+  }
+
+}
+
+.money-ready-item {
+    --background: transparent;
+    --color: #0d2e12;
+    --padding-start: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+
+    ion-label {
+        margin-left: -25px; // Ajustement pour centrer le texte malgré l'icône slot="start"
+    }
+}
+
+.loading-percentage {
+    text-align: center;
+    font-weight: 700;
+    color: #0d2e12;
+    margin-top: 8px;
+}

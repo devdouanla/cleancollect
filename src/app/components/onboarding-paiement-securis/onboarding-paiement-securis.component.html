@@ -1,0 +1,65 @@
+<ion-content class="onboarding-bg">
+
+    <ion-grid>
+
+        <!-- HEADER -->
+        <ion-row class="header-row ion-align-items-center">
+            <ion-col size="12" class="ion-text-center">
+                <ion-text class="title">
+                    CleanCollect
+                </ion-text>
+            </ion-col>
+            <ion-col size="2"></ion-col>
+        </ion-row>
+        <!-- IMAGE -->
+        <ion-row class="ion-justify-content-center image-row">
+            <ion-col size="11">
+                <ion-card class="image-card">
+                    <ion-img src="assets/icon/mobile.png"></ion-img>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <!-- TEXTE -->
+        <ion-row class="ion-justify-content-center text-row">
+            <ion-col size="11" class="ion-text-center">
+                <ion-text class="main-title">
+                    Paiement Mobile<br>
+                    Money sécurisé
+                </ion-text>
+                <ion-text class="description">
+                    <p>
+                        Payez facilement avec MTN MoMo
+                        ou Orange Money en quelques clics.
+                    </p>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <!-- INDICATEUR -->
+        <ion-row class="ion-justify-content-center slider-row">
+            <ion-col size="6">
+                <ion-grid class="slider-indicator">
+                    <ion-row class="ion-justify-content-center">
+                        <ion-col size="2">
+                            <span class="dot"></span>
+                        </ion-col>
+                        <ion-col size="2">
+                            <span class="dot"></span>
+                        </ion-col>
+                        <ion-col size="4">
+                            <span class="dot active"></span>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <!-- BOUTON -->
+        <!-- BOUTON -->
+        <ion-row class="ion-justify-content-center button-row">
+            <ion-col size="11">
+                <ion-button expand="block" class="start-button" (click)="goToMarket()">
+                    Commencer
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-content class="splash-background">
+
+  <ion-grid class="full-height-grid">
+
+    <ion-row class="ion-justify-content-center ion-align-items-center middle-row">
+      <ion-col size="12" class="ion-text-center">
+
+        <ion-avatar class="logo-container">
+          <ion-img src="assets/icon/logo.png" class="main-logo-img"></ion-img>
+
+          <ion-badge class="leaf-badge">
+            <ion-icon name="leaf"></ion-icon>
+          </ion-badge>
+
+        </ion-avatar>
+
+        <ion-text class="app-title">
+          <p>CleanCollect</p>
+        </ion-text>
+
+        <ion-text class="app-subtitle">
+          <p>
+            Collecte de déchets rapide<br>
+            et intelligente
+          </p>
+        </ion-text>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-justify-content-center bottom-row">
+      <ion-col size="11">
+
+        <!-- TEXTE CHARGEMENT -->
+        <ion-item lines="none" class="loading-info-item">
+
+          <ion-label class="loading-label">
+            CHARGEMENT
+            <ion-text>
+              <p>{{ progress * 100 | number:'1.0-0' }}%</p>
+            </ion-text>
+          </ion-label>
+
+          <ion-icon name="location-outline" slot="end" class="loc-icon">
+          </ion-icon>
+
+        </ion-item>
+
+        <!-- BARRE DE PROGRESSION CONNECTÉE AU TS -->
+        <ion-progress-bar [value]="progress" class="custom-progress">
+        </ion-progress-bar>
+
+        <!-- MOBILE MONEY -->
+        <ion-item lines="none" class="money-ready-item">
+
+          <ion-icon name="card-outline" slot="start">
+          </ion-icon>
+
+          <ion-label>
+            MOBILE MONEY READY
+          </ion-label>
+
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

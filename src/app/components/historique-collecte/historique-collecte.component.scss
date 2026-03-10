@@ -1,0 +1,264 @@
+// =============================================
+// Variables
+// =============================================
+:host {
+  --green-primary: #2ECC71;
+  --green-light: #E8F5E9;
+  --text-dark: #1A1A2E;
+  --text-muted: #9E9E9E;
+  --bg-page: #F4F6F8;
+  --card-radius: 18px;
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.06);
+}
+
+// =============================================
+// Header
+// =============================================
+.historique-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: transparent;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+}
+
+.header-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+// =============================================
+// Page
+// =============================================
+.historique-page {
+  --background: var(--bg-page);
+}
+
+// =============================================
+// Tabs filtre
+// =============================================
+.filter-tabs-row {
+  background: #ffffff;
+  padding-top: 12px !important;
+  padding-bottom: 0 !important;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.filter-tab {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: block;
+  padding-bottom: 10px;
+  white-space: nowrap;
+  transition: color 0.15s;
+
+  &.filter-tab-active {
+    color: var(--green-primary);
+    font-weight: 700;
+  }
+}
+
+.tab-underline-row {
+  margin-top: -2px;
+}
+
+.tab-underline {
+  height: 3px;
+  background: var(--green-primary);
+  border-radius: 2px;
+  padding: 0 !important;
+}
+
+.full-separator {
+  background: #ffffff;
+  ion-col {
+    height: 1px;
+    background: #E8E8E8;
+    padding: 0 !important;
+  }
+}
+
+// =============================================
+// Liste des collectes
+// =============================================
+.collecte-list {
+  background: transparent;
+  padding: 16px 0 8px;
+}
+
+.collecte-card {
+  margin: 0 16px 14px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  background: #ffffff;
+  border: none;
+
+  .collecte-card-content {
+    padding: 16px;
+  }
+}
+
+// Ligne supérieure
+.top-row {
+  margin-bottom: 14px;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+// Icône dans carré arrondi vert clair
+.icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--green-light);
+  flex-shrink: 0;
+}
+
+.collecte-icon {
+  font-size: 1.5rem;
+}
+
+.title-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding-left: 4px !important;
+}
+
+.collecte-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  line-height: 1.2;
+}
+
+.collecte-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  display: block;
+}
+
+// Badges statut
+.status-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 5px 10px;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+
+  &.status-termine {
+    --background: var(--green-light);
+    --color: #27AE60;
+  }
+
+  &.status-en-cours {
+    --background: #EFF3FF;
+    --color: #5B6FD6;
+  }
+
+  &.status-annule {
+    --background: #FFEBEE;
+    --color: #C62828;
+  }
+}
+
+// Séparateur interne
+.inner-separator {
+  ion-col {
+    height: 1px;
+    background: #F0F0F0;
+    padding: 0 !important;
+    margin-bottom: 14px;
+  }
+}
+
+// Ligne inférieure
+.bottom-row {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.amount-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.amount-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.4px;
+  display: block;
+}
+
+// Bouton action
+.action-btn {
+  --border-radius: 32px;
+  height: 42px;
+  font-weight: 700;
+  min-width: 100px;
+}
+
+.action-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.bottom-spacer {
+  height: 16px;
+}
+
+// =============================================
+// Tab Bar
+// =============================================
+.bottom-tab-bar {
+  --background: #ffffff;
+  --border: none;
+  border-top: 1px solid #F0F0F0;
+  height: 62px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn {
+  --color: #AAAAAA;
+  --color-selected: var(--green-primary);
+
+  ion-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+  }
+
+  &.tab-active {
+    --color: var(--green-primary);
+  }
+}
+
+.tab-add-btn {
+  --background: var(--green-primary);
+  --border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+
+  ion-icon {
+    font-size: 1.3rem;
+  }
+}

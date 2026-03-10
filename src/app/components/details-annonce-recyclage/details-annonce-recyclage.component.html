@@ -1,0 +1,167 @@
+<ion-header class="ion-no-border details-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/marche-du-recyclage" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Détails de l'annonce</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="share-btn" (click)="share()">
+        <ion-icon name="share-social-outline" slot="icon-only" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="details-page">
+
+  <!-- Carrousel photos -->
+  <ion-slides  class="photo-slides" (ionSlideDidChange)="onSlideChange($event)">
+    <ion-slide *ngFor="let photo of annonce.photos">
+      <ion-img [src]="photo" class="slide-image"></ion-img>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Compteur photos -->
+  <ion-row class="slide-counter-row ion-justify-content-end ion-padding-horizontal">
+    <ion-col size="auto">
+      <ion-badge class="slide-counter">{{ currentSlide + 1 }}/{{ annonce.photos.length }}</ion-badge>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="main-content ion-padding-horizontal">
+    <ion-col>
+
+      <!-- Titre + bookmark -->
+      <ion-row class="ion-align-items-start ion-justify-content-between title-row">
+        <ion-col>
+          <ion-text class="annonce-title">{{ annonce.title }}</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button fill="clear" class="bookmark-btn" (click)="toggleBookmark()">
+            <ion-icon
+              [name]="isBookmarked ? 'bookmark' : 'bookmark-outline'"
+              class="bookmark-icon"
+              [class.bookmarked]="isBookmarked">
+            </ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!-- Prix + Quantité -->
+      <ion-row class="ion-align-items-center price-qty-row">
+        <ion-col size="auto">
+          <ion-badge class="price-badge">{{ annonce.price | number:'1.0-0' }} FCFA</ion-badge>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-row class="ion-align-items-center qty-row">
+            <ion-icon name="scale-outline" class="qty-icon"></ion-icon>
+            <ion-text class="qty-text">{{ annonce.weight }}</ion-text>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <!-- Carte vendeur -->
+      <ion-card class="seller-card" (click)="viewSellerProfile()">
+        <ion-card-content class="seller-content">
+          <ion-avatar class="seller-avatar">
+            <ion-img [src]="annonce.seller.avatarUrl"></ion-img>
+          </ion-avatar>
+          <ion-row class="seller-info-col">
+            <ion-col>
+              <ion-row class="ion-align-items-center seller-name-row">
+                <ion-text class="seller-name">{{ annonce.seller.name }}</ion-text>
+                <ion-icon name="checkmark-circle" class="verified-icon" color="success"></ion-icon>
+              </ion-row>
+              <ion-text class="seller-meta">{{ annonce.seller.type }} • {{ annonce.seller.city }}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-icon name="chevron-forward-outline" class="chevron-icon" color="medium"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Localisation -->
+      <ion-row class="info-section-row">
+        <ion-col size="auto" class="info-icon-col">
+          <ion-icon name="location" class="section-icon location-icon" color="success"></ion-icon>
+        </ion-col>
+        <ion-col class="info-text-col">
+          <ion-text class="info-section-title">Localisation</ion-text>
+          <ion-text class="info-section-body">{{ annonce.location }}</ion-text>
+        </ion-col>
+      </ion-row>
+
+      <!-- Description -->
+      <ion-row class="info-section-row">
+        <ion-col size="auto" class="info-icon-col">
+          <ion-icon name="information-circle" class="section-icon desc-icon" color="success"></ion-icon>
+        </ion-col>
+        <ion-col class="info-text-col">
+          <ion-text class="info-section-title">Description</ion-text>
+          <ion-text class="info-section-body">{{ annonce.description }}</ion-text>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+  </ion-row>
+
+  <!-- Carte / Map placeholder -->
+  <ion-row class="map-row ion-padding-horizontal">
+    <ion-col>
+      <ion-card class="map-card">
+        <ion-img [src]="annonce.mapImageUrl" class="map-image"></ion-img>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="bottom-spacer"></ion-row>
+
+</ion-content>
+
+<!-- Footer avec boutons d'action -->
+<ion-footer class="ion-no-border action-footer">
+
+  <!-- Contacter + Message -->
+  <ion-row class="action-row ion-padding-horizontal ion-padding-top">
+    <ion-col>
+      <ion-button
+        expand="block"
+        fill="outline"
+        shape="round"
+        color="success"
+        class="contact-btn"
+        (click)="contact()">
+        <ion-icon name="call-outline" slot="start"></ion-icon>
+        <ion-label>Contacter</ion-label>
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+        expand="block"
+        fill="solid"
+        shape="round"
+        color="success"
+        class="message-btn"
+        (click)="message()">
+        <ion-icon name="chatbox-outline" slot="start"></ion-icon>
+        <ion-label>Message</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <!-- Proposer un rendez-vous -->
+  <ion-row class="rdv-row ion-padding-horizontal ion-padding-bottom">
+    <ion-col>
+      <ion-button
+        expand="block"
+        fill="solid"
+        shape="round"
+        color="dark"
+        class="rdv-btn"
+        (click)="proposeRdv()">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-label>Proposer un rendez-vous</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-footer>
