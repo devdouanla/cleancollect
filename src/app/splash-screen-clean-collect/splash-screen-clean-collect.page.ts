@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonContent, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonIcon, IonProgressBar } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { leafOutline, locationOutline, cashOutline } from 'ionicons/icons';
 
@@ -7,7 +7,7 @@ import { leafOutline, locationOutline, cashOutline } from 'ionicons/icons';
   selector: 'app-splash-screen-clean-collect',
   templateUrl: 'splash-screen-clean-collect.page.html',
   styleUrls: ['splash-screen-clean-collect.page.scss'],
-  imports: [IonContent, IonIcon],
+  imports: [IonContent, IonIcon, IonProgressBar],
 })
 export class SplashScreenCleanCollectPage {
   constructor() {

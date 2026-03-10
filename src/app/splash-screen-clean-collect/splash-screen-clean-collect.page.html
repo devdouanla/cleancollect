@@ -1,39 +1,58 @@
 <ion-content [fullscreen]="true" class="splash-content">
   <!-- Using a CSS background pattern or pseudo element for the watermark -->
-  <div class="main-wrapper">
+  <div class="ion-padding"
+    style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; position: relative; z-index: 1;">
+
     <!-- Logo area -->
-    <div class="logo-section">
-      <div class="logo-container">
-        <div class="white-circle">
+    <div
+      style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 15vh;">
+      <div class="ion-margin-bottom" style="position: relative;">
+        <!-- white-circle -->
+        <div
+          style="width: 140px; height: 140px; background-color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);">
           <!-- Recycle SVG Icon -->
-          <svg class="recycle-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 19.5L3 17.5M3 17.5L5 13.5M3 17.5L8.5 17.5C11.5 17.5 14.5 16 16.5 13.5C18.5 11 19 8 18.5 5L15 6M17 4.5L21 6.5M21 6.5L19 10.5M21 6.5L15.5 6.5C12.5 6.5 9.5 8 7.5 10.5C5.5 13 5 16 5.5 19L9 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 6"/>
+          <svg style="width: 70px; height: 70px; color: #26dc6a;" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7 19.5L3 17.5M3 17.5L5 13.5M3 17.5L8.5 17.5C11.5 17.5 14.5 16 16.5 13.5C18.5 11 19 8 18.5 5L15 6M17 4.5L21 6.5M21 6.5L19 10.5M21 6.5L15.5 6.5C12.5 6.5 9.5 8 7.5 10.5C5.5 13 5 16 5.5 19L9 18"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="2 6" />
           </svg>
         </div>
-        <div class="leaf-badge">
-          <ion-icon name="leaf-outline"></ion-icon>
+        <!-- leaf-badge -->
+        <div
+          style="position: absolute; top: 0; right: 0; width: 36px; height: 36px; background-color: #0b1528; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid #26dc6a;">
+          <ion-icon name="leaf-outline" style="color: #26dc6a; font-size: 18px;"></ion-icon>
         </div>
       </div>
-      
-      <h1 class="brand-title">CleanCollect</h1>
-      <p class="brand-subtitle">Collecte de déchets rapide et<br>intelligente</p>
+
+      <h1 class="ion-text-center"
+        style="color: #0b1528; font-size: 28px; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -0.5px;">
+        CleanCollect</h1>
+      <p class="ion-text-center ion-no-margin"
+        style="color: #0b1528; font-size: 15px; font-weight: 500; line-height: 1.4; opacity: 0.9;">Collecte de déchets
+        rapide et<br>intelligente</p>
     </div>
 
     <!-- Bottom area -->
-    <div class="bottom-section">
-      <div class="progress-header">
-        <span class="loading-text">CHARGEMENT</span>
-        <ion-icon name="location-outline" class="location-icon"></ion-icon>
+    <div class="ion-padding-bottom">
+      <div class="ion-margin-bottom" style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: #0b1528; font-size: 11px; font-weight: 700; letter-spacing: 1px;">CHARGEMENT</span>
+        <ion-icon name="location-outline" style="color: #0b1528; font-size: 18px;"></ion-icon>
       </div>
-      
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill"></div>
-      </div>
-      
-      <div class="footer-badge">
-        <ion-icon name="cash-outline" class="cash-icon"></ion-icon>
-        <span class="footer-text">MOBILE MONEY READY</span>
+
+      <ion-progress-bar value="0.35"
+        style="--background: rgba(11, 21, 40, 0.15); --progress-background: #0b1528; height: 6px; border-radius: 10px;"
+        class="ion-margin-bottom"></ion-progress-bar>
+
+      <div class="footer-badge"
+        style="display: flex; justify-content: center; align-items: center; gap: 6px; margin: 0 auto; padding: 4px 0;">
+        <ion-icon name="cash-outline" style="color: #0b1528; font-size: 14px;"></ion-icon>
+        <span style="color: #0b1528; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;">MOBILE MONEY
+          READY</span>
       </div>
     </div>
   </div>
