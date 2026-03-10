@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonApp, IonRouterOutlet, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel, IonToggle, IonSegment, IonSegmentButton } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 import { ThemeService } from './services/theme.service';
 import { LanguageService } from './services/language.service';
-import { TranslatePipe } from './pipes/translate.pipe';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +11,6 @@ import { TranslatePipe } from './pipes/translate.pipe';
   imports: [
     IonApp,
     IonRouterOutlet,
-    IonMenu,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonList,
-    IonItem,
-    IonIcon,
-    IonLabel,
-    IonToggle,
-    IonSegment,
-    IonSegmentButton,
-    RouterLink,
-    TranslatePipe,
   ],
 })
 export class AppComponent implements OnInit {
@@ -35,7 +20,7 @@ export class AppComponent implements OnInit {
   constructor(
     private theme: ThemeService,
     private language: LanguageService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.theme.init();

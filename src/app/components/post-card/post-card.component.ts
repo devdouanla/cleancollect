@@ -5,34 +5,21 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Share } from '@capacitor/share';
-import { 
-  IonContent, 
-  IonHeader, 
-  IonTitle, 
+import {
+  IonContent,
+  IonTitle,
   IonToolbar,
   IonButtons,
   IonButton,
   IonIcon,
-  IonSearchbar,
-  IonSegment,
-  IonSegmentButton,
-  IonRow,
-  IonCol,
-  IonChip,
   IonInput,
   IonItem,
-  IonFooter,
-  IonMenuButton,
   IonLabel,
   IonList,
-  IonCardHeader,
   IonCardContent,
   IonAvatar,
-  IonFab,
-  IonFabButton,
-  IonTabs,
-  IonTabBar,
-  IonTabButton
+  IonRow,
+  IonCol
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { heart, heartOutline, chatbubbleOutline, shareSocialOutline } from 'ionicons/icons';
@@ -43,45 +30,28 @@ import { heart, heartOutline, chatbubbleOutline, shareSocialOutline } from 'ioni
   standalone: true,
   imports: [
     IonCard,
-    IonContent, 
     IonList,
-    IonHeader, 
-    IonTitle, 
-    IonToolbar,
-    IonButtons,
     IonButton,
     IonIcon,
-    IonSearchbar,
-    IonSegment,
-    IonSegmentButton,
     IonRow,
     IonCol,
-    IonChip,
     IonInput,
     IonItem,
-    IonFooter,
-    IonMenuButton,
     IonLabel,
-    IonCardHeader,
     IonCardContent,
     IonAvatar,
-    IonFab,
-    IonFabButton,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-     FormsModule,
-     CommonModule,
-     ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
   ]
 })
 export class PostCardComponent {
-commentControl = new FormControl('');
-  @Input() post:any;
+  commentControl = new FormControl('');
+  @Input() post: any;
 
-  showComments=false;
+  showComments = false;
 
-  constructor(private postService:PostService){
+  constructor(private postService: PostService) {
     addIcons({
       heart,
       heartOutline,
@@ -90,7 +60,7 @@ commentControl = new FormControl('');
     });
   }
 
-  like(){
+  like() {
 
     this.postService.likePost(this.post.id);
 
@@ -99,7 +69,7 @@ commentControl = new FormControl('');
   async share() {
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://cleancollect.com';
     const url = `${baseUrl}/community?post=${this.post.id}`;
-  
+
     try {
       await Share.share({
         title: 'CleanCollect',
@@ -107,24 +77,24 @@ commentControl = new FormControl('');
         url,
         dialogTitle: 'Partager cette publication'
       });
-  
+
       this.postService.sharePost(this.post.id);
     } catch (err) {
       console.log('Partage annulé ou non supporté', err);
     }
   }
 
-  toggleComments(){
+  toggleComments() {
 
-    this.showComments=!this.showComments;
+    this.showComments = !this.showComments;
 
   }
 
-  addComment(){
+  addComment() {
 
     const comment = this.commentControl.value;
 
-    if(comment && comment.trim() !== ""){
+    if (comment && comment.trim() !== "") {
 
       this.postService.addComment(this.post.id, comment);
 
